@@ -429,6 +429,10 @@
     💼 Finance &amp; Payments
     <span style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:var(--green);font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;">Jan · Feb · Mar</span>
   </button>
+  <button onclick="switchPage('ppc')" id="pgbtn-ppc" style="padding:14px 28px;font-size:14px;font-weight:700;border:none;border-bottom:3px solid transparent;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;">
+    📈 Ad Intelligence
+    <span style="background:rgba(251,146,60,0.15);border:1px solid rgba(251,146,60,0.3);color:#fb923c;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;">MAG · PPC · Brand</span>
+  </button>
 </div>
 
 <div id="page-sales">
@@ -1876,6 +1880,499 @@
 </main>
 </div><!-- /page-payments -->
 
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- AD INTELLIGENCE PAGE                                        -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div id="page-ppc" style="display:none;">
+<main style="max-width:1100px;margin:0 auto;padding:32px 24px;">
+
+  <!-- Page header -->
+  <div style="margin-bottom:28px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div>
+      <h1 style="font-size:22px;font-weight:700;color:var(--fg);margin:0 0 6px;">Ad Intelligence &amp; Agency Review</h1>
+      <p style="color:var(--muted);font-size:13px;margin:0;">Managed by My Amazon Guy (MAG) · Oct 2025–Present · Q1 2026 · Sponsored Products Campaign Data</p>
+    </div>
+    <div style="font-size:11px;color:var(--muted);text-align:right;line-height:1.8;">
+      Source: Amazon Ads Campaign Report<br>
+      Revenue from Business Reports · Refreshed Mar 30
+    </div>
+  </div>
+
+  <!-- ── HEADLINE KPIs ── -->
+  <div class="section-label">Q1 2026 — Ad Performance at a Glance</div>
+  <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr);">
+
+    <div class="kpi-card" style="border-top:3px solid #fb923c;">
+      <span class="kpi-icon">💸</span>
+      <div class="kpi-label">Q1 Ad Spend</div>
+      <div class="kpi-value">$115,058</div>
+      <div class="kpi-sub">Jan $47.7K · Feb $40.2K · Mar $27.1K</div>
+      <div class="kpi-badge" style="background:rgba(251,146,60,0.15);color:#fb923c;">$5,058 over $110K budget</div>
+    </div>
+
+    <div class="kpi-card" style="border-top:3px solid var(--accent);">
+      <span class="kpi-icon">🛒</span>
+      <div class="kpi-label">Q1 Ad-Attributed Sales</div>
+      <div class="kpi-value">$358,189</div>
+      <div class="kpi-sub">of $1,037,293 total revenue</div>
+      <div class="kpi-badge" style="background:rgba(96,165,250,0.15);color:var(--accent);">34.5% ad-driven · 65.5% organic</div>
+    </div>
+
+    <div class="kpi-card" style="border-top:3px solid var(--green);">
+      <span class="kpi-icon">📉</span>
+      <div class="kpi-label">Mar ACoS</div>
+      <div class="kpi-value" style="color:var(--green);">23.1%</div>
+      <div class="kpi-sub">vs 37.3% Feb · 35.9% Jan</div>
+      <div class="kpi-badge up">↓ 38% improvement Feb→Mar</div>
+    </div>
+
+    <div class="kpi-card" style="border-top:3px solid #a78bfa;">
+      <span class="kpi-icon">⚡</span>
+      <div class="kpi-label">Mar ROAS</div>
+      <div class="kpi-value" style="color:#a78bfa;">4.33x</div>
+      <div class="kpi-sub">vs 2.68x Feb · 2.79x Jan</div>
+      <div class="kpi-badge" style="background:rgba(167,139,250,0.15);color:#a78bfa;">↑ Best quarter efficiency</div>
+    </div>
+
+  </div>
+
+  <!-- ── BIG INSIGHT CALLOUT ── -->
+  <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.35);border-radius:10px;padding:18px 22px;margin:20px 0 28px;display:flex;gap:16px;align-items:flex-start;">
+    <div style="font-size:26px;line-height:1;">🚀</div>
+    <div>
+      <div style="font-size:13px;font-weight:700;color:var(--green);margin-bottom:5px;">March Breakthrough: More Sales, Less Spend</div>
+      <div style="font-size:13px;color:var(--fg);line-height:1.7;">March ad sales hit <strong style="color:var(--green);">$117,492</strong> — up from $107,761 in February — while spend dropped from $40,189 to $27,145. That's <strong style="color:var(--green);">+9% more ad revenue with 32% less spend</strong>. ACoS improved from 37.3% → 23.1% and ROAS leapt from 2.68x → 4.33x. Orders held steady at ~2,268 (vs 2,252 in Feb). MAG appears to be getting sharper in March — <strong style="color:#fbbf24;">this needs to continue into Q2.</strong></div>
+    </div>
+  </div>
+
+  <!-- ── MONTHLY DEEP DIVE ── -->
+  <div class="section-label">Monthly Performance — Budget, ACoS &amp; Efficiency</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;">
+
+    <!-- January -->
+    <div class="table-card" style="padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--fg);">January 2026</div>
+          <div style="font-size:11px;color:var(--muted);">Budget $40K · Spent $47.7K</div>
+        </div>
+        <span style="background:rgba(239,68,68,0.15);color:#f87171;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;">▲ 19% OVER</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:#f87171;">35.9%</div>
+          <div style="font-size:10px;color:var(--muted);">ACoS</div>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">2.79x</div>
+          <div style="font-size:10px;color:var(--muted);">ROAS</div>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">$132,936</div>
+          <div style="font-size:10px;color:var(--muted);">Ad Sales</div>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">2,444</div>
+          <div style="font-size:10px;color:var(--muted);">Ad Orders</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:10px;font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;"><span>Impressions</span><strong style="color:var(--fg);">4,707,322</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Clicks</span><strong style="color:var(--fg);">18,933</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>CTR</span><strong style="color:var(--fg);">0.40%</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Avg CPC</span><strong style="color:var(--fg);">$2.52</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>TACoS</span><strong style="color:#fb923c;">12.8%</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Organic Rev</span><strong style="color:var(--green);">$240,527 (64%)</strong></div>
+      </div>
+    </div>
+
+    <!-- February -->
+    <div class="table-card" style="padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--fg);">February 2026</div>
+          <div style="font-size:11px;color:var(--muted);">Budget $40K · Spent $40.2K</div>
+        </div>
+        <span style="background:rgba(34,197,94,0.15);color:var(--green);font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;">✓ ON TARGET</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:#f87171;">37.3%</div>
+          <div style="font-size:10px;color:var(--muted);">ACoS ▲ worst</div>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">2.68x</div>
+          <div style="font-size:10px;color:var(--muted);">ROAS ▼ low</div>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">$107,761</div>
+          <div style="font-size:10px;color:var(--muted);">Ad Sales ▼</div>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">2,252</div>
+          <div style="font-size:10px;color:var(--muted);">Ad Orders</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:10px;font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;"><span>Impressions</span><strong style="color:var(--fg);">4,309,284</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Clicks</span><strong style="color:var(--fg);">16,254</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>CTR</span><strong style="color:var(--fg);">0.38%</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Avg CPC</span><strong style="color:var(--fg);">$2.47</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>TACoS</span><strong style="color:#fb923c;">12.3%</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Organic Rev</span><strong style="color:var(--green);">$218,578 (67%)</strong></div>
+      </div>
+    </div>
+
+    <!-- March -->
+    <div class="table-card" style="padding:20px;border:1px solid rgba(34,197,94,0.4);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--fg);">March 2026 <span style="font-size:10px;color:var(--muted);">29d</span></div>
+          <div style="font-size:11px;color:var(--muted);">Budget $30K · Spent $27.1K</div>
+        </div>
+        <span style="background:rgba(34,197,94,0.15);color:var(--green);font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;">✓ BEST MONTH</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--green);">23.1%</div>
+          <div style="font-size:10px;color:var(--muted);">ACoS ↓ best</div>
+        </div>
+        <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--green);">4.33x</div>
+          <div style="font-size:10px;color:var(--muted);">ROAS ↑ best</div>
+        </div>
+        <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--green);">$117,492</div>
+          <div style="font-size:10px;color:var(--muted);">Ad Sales ↑</div>
+        </div>
+        <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:8px;text-align:center;">
+          <div style="font-size:17px;font-weight:700;color:var(--fg);">2,268</div>
+          <div style="font-size:10px;color:var(--muted);">Ad Orders →</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:10px;font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;"><span>Impressions</span><strong style="color:var(--fg);">3,130,643</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Clicks</span><strong style="color:var(--fg);">13,528</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>CTR</span><strong style="color:var(--green);">0.43% ↑</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Avg CPC</span><strong style="color:var(--green);">$2.01 ↓</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>TACoS</span><strong style="color:var(--green);">8.0% ↓</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span>Organic Rev</span><strong style="color:var(--green);">$219,999 (65%)</strong></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── BRAND DEFENSE ANALYSIS ── -->
+  <div class="section-label" style="margin-top:32px;">Brand Defense Analysis — Where Is the Money Going?</div>
+
+  <!-- Brand spend warning callout -->
+  <div style="background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.35);border-radius:10px;padding:16px 20px;margin-bottom:16px;display:flex;gap:14px;align-items:flex-start;">
+    <div style="font-size:22px;">⚠️</div>
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:4px;">Brand Keywords Are Eating the Budget — But Improving</div>
+      <div style="font-size:12px;color:var(--fg);line-height:1.6;">In January, <strong style="color:#f87171;">59.3% of all ad spend</strong> went to brand keywords (bidding on your own "Heal-N-Soothe" terms) + ASIN defense. That dropped to <strong style="color:#fbbf24;">49.5% in Feb</strong> and <strong style="color:var(--green);">43.0% in March</strong> — trending in the right direction, but still above the healthy range. The risk: you're paying for clicks that customers searching your brand name might have made organically anyway. Ask MAG if brand keyword bids can be lowered gradually to test organic conversion impact.</div>
+    </div>
+  </div>
+
+  <!-- 3-month type breakdown -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;">
+    <!-- Jan breakdown -->
+    <div class="table-card" style="padding:18px;">
+      <div style="font-size:12px;font-weight:700;color:var(--fg);margin-bottom:12px;">January — Spend by Type</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🏷 Brand Keywords</span>
+            <span style="color:#f87171;font-weight:700;">52.2% · $24,903</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#f87171;width:52.2%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🔍 Generic/Ranking</span>
+            <span style="color:var(--fg);font-weight:700;">19.6% · $9,377</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#60a5fa;width:19.6%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🤖 Auto</span>
+            <span style="color:var(--fg);font-weight:700;">10.4% · $4,975</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#a78bfa;width:10.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">⚔ Competitor</span>
+            <span style="color:var(--fg);font-weight:700;">9.2% · $4,377</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fb923c;width:9.2%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🛡 ASIN Defense</span>
+            <span style="color:var(--fg);font-weight:700;">7.1% · $3,403</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#34d399;width:7.1%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">📂 Category</span>
+            <span style="color:var(--fg);font-weight:700;">1.4% · $689</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#94a3b8;width:1.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:#f87171;">59.3%</strong></div>
+    </div>
+
+    <!-- Feb breakdown -->
+    <div class="table-card" style="padding:18px;">
+      <div style="font-size:12px;font-weight:700;color:var(--fg);margin-bottom:12px;">February — Spend by Type</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🏷 Brand Keywords</span>
+            <span style="color:#fbbf24;font-weight:700;">44.5% · $17,898</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fbbf24;width:44.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🤖 Auto</span>
+            <span style="color:#f87171;font-weight:700;">21.5% · $8,657</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#a78bfa;width:21.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🔍 Generic/Ranking</span>
+            <span style="color:var(--fg);font-weight:700;">16.5% · $6,627</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#60a5fa;width:16.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">⚔ Competitor</span>
+            <span style="color:var(--fg);font-weight:700;">10.5% · $4,226</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fb923c;width:10.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🛡 ASIN Defense</span>
+            <span style="color:var(--fg);font-weight:700;">5.0% · $2,011</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#34d399;width:5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">📂 Category</span>
+            <span style="color:var(--fg);font-weight:700;">1.9% · $770</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#94a3b8;width:1.9%;height:6px;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:#fbbf24;">49.5%</strong> &nbsp;·&nbsp; ⚠ Auto ACoS 69.5%</div>
+    </div>
+
+    <!-- Mar breakdown -->
+    <div class="table-card" style="padding:18px;border:1px solid rgba(34,197,94,0.3);">
+      <div style="font-size:12px;font-weight:700;color:var(--fg);margin-bottom:12px;">March — Spend by Type</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🏷 Brand Keywords</span>
+            <span style="color:var(--green);font-weight:700;">38.4% · $10,415</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:var(--green);width:38.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🔍 Generic/Ranking</span>
+            <span style="color:var(--green);font-weight:700;">22.6% · $6,136</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#60a5fa;width:22.6%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🤖 Auto</span>
+            <span style="color:var(--fg);font-weight:700;">20.1% · $5,469</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#a78bfa;width:20.1%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">⚔ Competitor</span>
+            <span style="color:var(--fg);font-weight:700;">11.9% · $3,235</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fb923c;width:11.9%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🛡 ASIN Defense</span>
+            <span style="color:var(--fg);font-weight:700;">4.6% · $1,252</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#34d399;width:4.6%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">📂 Category</span>
+            <span style="color:var(--fg);font-weight:700;">2.4% · $638</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#94a3b8;width:2.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:var(--green);">43.0% ↓ improving</strong></div>
+    </div>
+
+  </div>
+
+  <!-- ACoS by campaign type table -->
+  <div class="table-card" style="margin-bottom:24px;">
+    <div class="chart-header">
+      <div>
+        <div class="chart-title">ACoS by Campaign Type — Where is Each Dollar Most Efficient?</div>
+        <div class="chart-subtitle">Lower ACoS = better return. Green = efficient. Red = needs attention.</div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign Type</th>
+          <th>Jan ACoS</th><th>Jan Spend</th>
+          <th>Feb ACoS</th><th>Feb Spend</th>
+          <th>Mar ACoS</th><th>Mar Spend</th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--fg);">🔍 Generic / Ranking</strong></td>
+          <td style="color:#fbbf24;">27.6%</td><td style="color:var(--muted);">$9,377</td>
+          <td style="color:var(--green);">20.9%</td><td style="color:var(--muted);">$6,627</td>
+          <td style="color:var(--green);font-weight:700;">16.6%</td><td style="color:var(--muted);">$6,136</td>
+          <td><span style="color:var(--green);">↓ Improving ✓</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--fg);">🏷 Brand Keywords</strong></td>
+          <td style="color:#fbbf24;">36.6%</td><td style="color:var(--muted);">$24,903</td>
+          <td style="color:#fbbf24;">35.8%</td><td style="color:var(--muted);">$17,898</td>
+          <td style="color:var(--green);font-weight:700;">20.9%</td><td style="color:var(--muted);">$10,415</td>
+          <td><span style="color:var(--green);">↓ Big drop Mar ✓</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--fg);">🛡 ASIN Defense</strong></td>
+          <td style="color:#f87171;">41.5%</td><td style="color:var(--muted);">$3,403</td>
+          <td style="color:#fbbf24;">37.6%</td><td style="color:var(--muted);">$2,011</td>
+          <td style="color:var(--green);font-weight:700;">27.2%</td><td style="color:var(--muted);">$1,252</td>
+          <td><span style="color:var(--green);">↓ Improving ✓</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--fg);">⚔ Competitor</strong></td>
+          <td style="color:#f87171;">44.6%</td><td style="color:var(--muted);">$4,377</td>
+          <td style="color:#f87171;">57.6%</td><td style="color:var(--muted);">$4,226</td>
+          <td style="color:#fbbf24;font-weight:700;">30.0%</td><td style="color:var(--muted);">$3,235</td>
+          <td><span style="color:#fbbf24;">↓ Still high</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--fg);">🤖 Auto Campaigns</strong></td>
+          <td style="color:#f87171;">43.1%</td><td style="color:var(--muted);">$4,975</td>
+          <td style="color:#f87171;font-weight:700;">69.5% ⚠</td><td style="color:var(--muted);">$8,657</td>
+          <td style="color:#f87171;font-weight:700;">38.0%</td><td style="color:var(--muted);">$5,469</td>
+          <td><span style="color:#fbbf24;">Feb disaster fixed</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--fg);">📂 Category</strong></td>
+          <td style="color:#f87171;">46.8%</td><td style="color:var(--muted);">$689</td>
+          <td style="color:#f87171;font-weight:700;">84.0% ⚠</td><td style="color:var(--muted);">$770</td>
+          <td style="color:#f87171;font-weight:700;">63.6% ⚠</td><td style="color:var(--muted);">$638</td>
+          <td><span style="color:#f87171;">Consistently poor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── MAG SCORECARD ── -->
+  <div class="section-label" style="margin-top:32px;">MAG Agency Scorecard — Updated with Real Data</div>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:24px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--fg);">My Amazon Guy (MAG)</div>
+        <div style="font-size:12px;color:var(--muted);">Managing since Oct 2025 · Q1 2026 assessed with real campaign data</div>
+      </div>
+      <div style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.35);border-radius:8px;padding:10px 18px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;color:#60a5fa;">B</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px;">Overall (up from B−)</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+
+      <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.25);border-radius:8px;padding:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <div style="font-size:12px;font-weight:700;color:var(--fg);">🎨 Creative &amp; Assets</div>
+          <span style="background:rgba(34,197,94,0.2);color:var(--green);font-size:12px;font-weight:800;padding:2px 10px;border-radius:6px;">A</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;">Images, A+ content, and listing assets are strong. Consistent quality across all campaigns. Clear strength of the engagement.</div>
+      </div>
+
+      <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.25);border-radius:8px;padding:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <div style="font-size:12px;font-weight:700;color:var(--fg);">📊 Ad Efficiency (ACoS)</div>
+          <span style="background:rgba(34,197,94,0.2);color:var(--green);font-size:12px;font-weight:800;padding:2px 10px;border-radius:6px;">B+</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;">ACoS dropped from 37.3% → 23.1% in March — a 38% improvement. ROAS went from 2.68x → 4.33x. March ad sales were higher than February despite 32% less spend. Real progress here.</div>
+      </div>
+
+      <div style="background:rgba(251,146,60,0.07);border:1px solid rgba(251,146,60,0.25);border-radius:8px;padding:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <div style="font-size:12px;font-weight:700;color:var(--fg);">💰 Budget Control</div>
+          <span style="background:rgba(251,146,60,0.2);color:#fb923c;font-size:12px;font-weight:800;padding:2px 10px;border-radius:6px;">C+</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;">Jan was 19% over budget. Feb was on target. March is under-pacing. Large swings suggest inconsistent budget management — though the trend is stabilizing. Feb auto campaigns had 69.5% ACoS (waste signal).</div>
+      </div>
+
+      <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <div style="font-size:12px;font-weight:700;color:var(--fg);">📈 Revenue Growth</div>
+          <span style="background:rgba(239,68,68,0.2);color:#f87171;font-size:12px;font-weight:800;padding:2px 10px;border-radius:6px;">C</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;">Total revenue is stagnant despite ad investment. Feb dropped 12.6% vs Jan. YoY Feb was down 15%. Ad efficiency improving is great, but needs to translate into top-line growth in Q2.</div>
+      </div>
+
+    </div>
+
+    <!-- Questions for MAG (updated with data-driven questions) -->
+    <div style="margin-top:18px;background:rgba(96,165,250,0.07);border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:14px 18px;">
+      <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:10px;">📋 Data-Driven Questions for Your Next MAG Meeting</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">1. Brand keywords are 38–52% of budget. Can we test reducing brand bids 20% to see if organic holds?</div>
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">2. Feb auto campaigns hit 69.5% ACoS — what happened and how was it fixed?</div>
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">3. Category campaigns are 47–84% ACoS every month — should these be paused?</div>
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">4. Generic/ranking campaigns (16.6% ACoS in Mar) are the most efficient — should we shift more budget here?</div>
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">5. With ACoS dramatically better in March, what is Q2 strategy to convert efficiency into revenue growth?</div>
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;">6. Why did competitor targeting go from 44.6% → 57.6% ACoS in Feb? Was this a specific campaign issue?</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTNOTE ── -->
+  <div style="font-size:11px;color:var(--muted);line-height:1.8;border-top:1px solid var(--border);padding-top:16px;">
+    <strong style="color:var(--fg);">Data sources:</strong> &nbsp;·&nbsp;
+    Amazon Sponsored Products Campaign Report (Jan–Mar 2026) &nbsp;·&nbsp;
+    Revenue from Business Reports (ordered product sales) &nbsp;·&nbsp;
+    ACoS = Ad Spend ÷ Ad-Attributed Sales &nbsp;·&nbsp;
+    TACoS = Ad Spend ÷ Total Revenue &nbsp;·&nbsp;
+    <strong style="color:var(--fg);">MAG</strong> = My Amazon Guy · Managing since Oct 2025
+  </div>
+
+</main>
+</div><!-- /page-ppc -->
+
+
 <footer>
   Data sourced directly from Amazon Seller Central · healthybackinstitute · US Marketplace · March 26, 2026
 </footer>
@@ -2050,25 +2547,15 @@ new Chart(cc, {
 
 // ── PAGE SWITCHER (Sales Dashboard ↔ Payments Summary) ──
 function switchPage(page) {
-  const salesPage = document.getElementById('page-sales');
-  const paymentsPage = document.getElementById('page-payments');
-  const btnSales = document.getElementById('pgbtn-sales');
-  const btnPayments = document.getElementById('pgbtn-payments');
-  if (page === 'sales') {
-    salesPage.style.display = '';
-    paymentsPage.style.display = 'none';
-    btnSales.style.borderBottomColor = 'var(--accent)';
-    btnSales.style.color = 'var(--accent)';
-    btnPayments.style.borderBottomColor = 'transparent';
-    btnPayments.style.color = 'var(--muted)';
-  } else {
-    salesPage.style.display = 'none';
-    paymentsPage.style.display = '';
-    btnPayments.style.borderBottomColor = 'var(--accent)';
-    btnPayments.style.color = 'var(--accent)';
-    btnSales.style.borderBottomColor = 'transparent';
-    btnSales.style.color = 'var(--muted)';
-  }
+  ['sales','payments','ppc'].forEach(p => {
+    const el = document.getElementById('page-' + p);
+    const btn = document.getElementById('pgbtn-' + p);
+    if (el)  el.style.display  = (p === page) ? '' : 'none';
+    if (btn) {
+      btn.style.borderBottomColor = (p === page) ? 'var(--accent)' : 'transparent';
+      btn.style.color             = (p === page) ? 'var(--accent)' : 'var(--muted)';
+    }
+  });
 }
 
 // ── PRODUCT TAB SWITCHER ──
