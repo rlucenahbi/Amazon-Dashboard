@@ -1443,7 +1443,7 @@
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- FINANCE P&L SECTION                                    -->
   <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="section-label" style="margin-top:32px">Finance P&amp;L — Revenue → Payout · March 2026 MTD · Benchmarks from Feb 2026 Payments Summary</div>
+  <div class="section-label" style="margin-top:32px">Finance P&amp;L — Revenue → Payout · Mar 2026 Final + Apr 2026 MTD · Benchmarks from Feb 2026 Payments Summary</div>
 
   <!-- WATERFALL CARD -->
   <div style="background:var(--surface);border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-bottom:14px;">
@@ -1584,7 +1584,7 @@
   </div>
 
   <!-- FEE RATE MONITOR -->
-  <div class="section-label" style="margin-top:24px">Fee Rate Monitor — March 2026 vs. February 2026 Benchmarks (from Payments Summary)</div>
+  <div class="section-label" style="margin-top:24px">Fee Rate Monitor — Mar 2026 Confirmed (from Payments Summary PDF)</div>
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:20px;">
     <div class="kpi-card">
       <span class="kpi-icon">📋</span>
@@ -1725,7 +1725,8 @@
     <div style="font-size:11px;color:var(--muted);text-align:right;line-height:1.8;">
       <span style="background:rgba(34,197,94,0.12);color:var(--green);padding:3px 8px;border-radius:4px;font-weight:600;">Jan 2026 Confirmed</span>&nbsp;
       <span style="background:rgba(240,165,0,0.12);color:var(--accent);padding:3px 8px;border-radius:4px;font-weight:600;">Feb 2026 Confirmed</span>&nbsp;
-      <span style="background:rgba(59,130,246,0.12);color:#3b82f6;padding:3px 8px;border-radius:4px;font-weight:600;">Mar 2026 Projected</span>
+      <span style="background:rgba(34,197,94,0.12);color:var(--green);padding:3px 8px;border-radius:4px;font-weight:600;">Mar 2026 ✓ Confirmed</span>&nbsp;
+      <span style="background:rgba(139,92,246,0.12);color:#a78bfa;padding:3px 8px;border-radius:4px;font-weight:600;">Apr 2026 MTD</span>
     </div>
   </div>
 
@@ -1737,7 +1738,8 @@
           <th style="padding:14px 20px;text-align:left;color:var(--muted);font-weight:600;width:36%;">Transaction Type</th>
           <th style="padding:14px 20px;text-align:right;color:var(--green);font-weight:600;white-space:nowrap;">Jan 2026<br><span style="font-size:10px;font-weight:400;opacity:0.8;">✓ Confirmed</span></th>
           <th style="padding:14px 20px;text-align:right;color:var(--accent);font-weight:600;white-space:nowrap;">Feb 2026<br><span style="font-size:10px;font-weight:400;opacity:0.8;">✓ Confirmed</span></th>
-          <th style="padding:14px 20px;text-align:right;color:#3b82f6;font-weight:600;white-space:nowrap;">Mar 2026<br><span style="font-size:10px;font-weight:400;opacity:0.8;">Projected (Base)</span></th>
+          <th style="padding:14px 20px;text-align:right;color:var(--green);font-weight:600;white-space:nowrap;">Mar 2026<br><span style="font-size:10px;font-weight:400;opacity:0.8;">✓ Confirmed</span></th>
+          <th style="padding:14px 20px;text-align:right;color:#a78bfa;font-weight:600;white-space:nowrap;">Apr 2026<br><span style="font-size:10px;font-weight:400;opacity:0.8;">MTD 4d / Proj.</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1745,79 +1747,92 @@
           <td style="padding:13px 20px;font-size:13px;font-weight:700;color:var(--accent);">💰 Product Sales (Gross)</td>
           <td style="padding:13px 20px;text-align:right;font-size:13px;font-weight:700;color:var(--accent);">$373,463</td>
           <td style="padding:13px 20px;text-align:right;font-size:13px;font-weight:700;color:var(--accent);">$326,339</td>
-          <td style="padding:13px 20px;text-align:right;font-size:13px;color:var(--muted);">~$361,491</td>
+          <td style="padding:13px 20px;text-align:right;font-size:13px;font-weight:700;color:var(--accent);">$358,593</td>
+          <td style="padding:13px 20px;text-align:right;font-size:13px;color:#a78bfa;">$45,536 <span style="color:var(--muted);font-size:10px;">→ ~$341,520</span></td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">− Promotional Rebates &amp; Coupons</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:#f97316;">−$26,425</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:#f97316;">~−$23,823</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:#f97316;">~−$26,389</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:#f97316;">−$27,406</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">pending</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">− Refunds &amp; Returns</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">−$7,800</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$5,874</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$4,880</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">−$6,636</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">pending</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">+ Credits &amp; Adjustments</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--green);">+$6,795</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">$0</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--green);">+$8,338 <span style="color:var(--muted);font-size:10px;">(inv+ship)</span></td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">$0</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.03);">
           <td style="padding:10px 20px 10px 36px;font-size:12px;font-style:italic;color:var(--text);">= Net Product Sales</td>
           <td style="padding:10px 20px;text-align:right;font-size:12px;color:var(--text);">$346,033</td>
           <td style="padding:10px 20px;text-align:right;font-size:12px;color:var(--text);">~$296,642</td>
-          <td style="padding:10px 20px;text-align:right;font-size:12px;color:var(--muted);">~$330,222</td>
+          <td style="padding:10px 20px;text-align:right;font-size:12px;font-weight:600;color:var(--text);">$332,889</td>
+          <td style="padding:10px 20px;text-align:right;font-size:12px;color:var(--muted);">~$311,978 proj.</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">− FBA Fulfillment Fees (8.61%)</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$32,194</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$28,098</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$31,126</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">−$30,358</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$29,405</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">− Amazon Referral Fees (13.82%)</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$51,641</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$45,100</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$49,958</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">−$48,849</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$47,178</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">− FBA Storage &amp; Other Fees (0.93%)</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$5,871</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$3,035</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$3,362</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">−$3,996 <span style="color:var(--muted);font-size:10px;">(svc+adj)</span></td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--red);">~−$3,176</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border);background:rgba(239,68,68,0.04);">
           <td style="padding:10px 20px 10px 36px;font-size:12px;font-style:italic;color:var(--text);">= Total Amazon Expenses</td>
           <td style="padding:10px 20px;text-align:right;font-size:12px;font-weight:600;color:var(--red);">−$89,706</td>
           <td style="padding:10px 20px;text-align:right;font-size:12px;font-weight:600;color:var(--red);">~−$76,233</td>
-          <td style="padding:10px 20px;text-align:right;font-size:12px;font-weight:600;color:var(--red);">~−$84,446</td>
+          <td style="padding:10px 20px;text-align:right;font-size:12px;font-weight:600;color:var(--red);">−$83,202</td>
+          <td style="padding:10px 20px;text-align:right;font-size:12px;font-weight:600;color:var(--red);">~−$79,759</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border);">
           <td style="padding:13px 20px;font-size:13px;font-weight:700;color:var(--text);">💵 Net Amazon Settlement (Payout to Bank)</td>
           <td style="padding:13px 20px;text-align:right;font-size:13px;font-weight:700;">$256,397</td>
           <td style="padding:13px 20px;text-align:right;font-size:13px;font-weight:700;">~$220,409</td>
-          <td style="padding:13px 20px;text-align:right;font-size:13px;color:var(--muted);">~$245,776</td>
+          <td style="padding:13px 20px;text-align:right;font-size:13px;font-weight:700;">$249,687</td>
+          <td style="padding:13px 20px;text-align:right;font-size:13px;color:#a78bfa;">~$232,219 proj.</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.015);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--muted);">Bank Transfer Disbursed</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;">$237,149 <span style="color:var(--muted);font-size:10px;">(retained $19,248 in Amazon acct)</span></td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">~$220,409</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">~$245,776</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;">$231,889 <span style="color:var(--muted);font-size:10px;">(retained $17,797)</span></td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--muted);">~$232,219 proj.</td>
         </tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(59,130,246,0.04);">
           <td style="padding:9px 20px 9px 36px;font-size:12px;color:var(--blue);">− Ad Spend (billed separately via Ads Console)</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--blue);">~−$31,000</td>
           <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--blue);">~−$29,000</td>
-          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--blue);">~−$29,400</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--blue);">~−$27,141</td>
+          <td style="padding:9px 20px;text-align:right;font-size:12px;color:var(--blue);">$3,296 MTD → ~−$30,000</td>
         </tr>
         <tr style="background:rgba(34,197,94,0.06);">
           <td style="padding:14px 20px;font-size:13px;font-weight:700;color:var(--green);">✅ True Net After All Amazon Costs</td>
           <td style="padding:14px 20px;text-align:right;font-size:14px;font-weight:700;color:var(--green);">~$225,397</td>
           <td style="padding:14px 20px;text-align:right;font-size:14px;font-weight:700;color:var(--green);">~$191,409</td>
-          <td style="padding:14px 20px;text-align:right;font-size:14px;color:var(--muted);">~$216,376</td>
+          <td style="padding:14px 20px;text-align:right;font-size:14px;font-weight:700;color:var(--green);">~$222,546</td>
+          <td style="padding:14px 20px;text-align:right;font-size:14px;font-weight:700;color:#a78bfa;">~$202,219 proj.</td>
         </tr>
       </tbody>
     </table>
@@ -1827,33 +1842,33 @@
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-bottom:20px;">
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Referral Fee Rate</div>
-      <div style="font-size:24px;font-weight:700;color:var(--fg);">13.82%</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Feb 2026 benchmark</div>
+      <div style="font-size:24px;font-weight:700;color:var(--fg);">13.62%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Mar 2026 confirmed</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">FBA Fulfillment Rate</div>
-      <div style="font-size:24px;font-weight:700;color:var(--fg);">8.61%</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Feb 2026 benchmark</div>
+      <div style="font-size:24px;font-weight:700;color:var(--fg);">8.47%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Mar 2026 confirmed</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Storage + Inbound</div>
-      <div style="font-size:24px;font-weight:700;color:var(--fg);">0.93%</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Feb 2026 benchmark</div>
+      <div style="font-size:24px;font-weight:700;color:var(--fg);">1.11%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Mar 2026 confirmed</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Total Fee Rate</div>
-      <div style="font-size:24px;font-weight:700;color:var(--fg);">23.4%</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Feb 2026 benchmark</div>
+      <div style="font-size:24px;font-weight:700;color:var(--fg);">23.2%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">of gross sales · Mar 2026 confirmed</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Net Payout Margin</div>
-      <div style="font-size:24px;font-weight:700;color:var(--green,#22c55e);">67.2%</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">Confirmed Feb 2026 · excl. ad spend</div>
+      <div style="font-size:24px;font-weight:700;color:var(--green,#22c55e);">69.6%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">Mar 2026 confirmed · excl. ad spend</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Ad Spend (Separate)</div>
-      <div style="font-size:24px;font-weight:700;color:var(--fg);">~7.7%</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">Billed via Amazon Advertising, not in Payments</div>
+      <div style="font-size:24px;font-weight:700;color:var(--fg);">~7.6%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">~$27,141 est. · billed via Ads Console separately</div>
     </div>
   </div>
 
@@ -1864,9 +1879,9 @@
     &nbsp;·&nbsp;
     <strong style="color:var(--fg);">Feb 2026</strong> — Gross sales, total fees, and net payout confirmed from uploaded Payments Summary PDF. Income sub-lines (refunds/promos) estimated using Mar 2026 rates as proxy; upload Feb Unified Transaction report to confirm exact breakdown.
     &nbsp;·&nbsp;
-    <strong style="color:var(--fg);">Mar 2026</strong> — Business Reports ordered sales through Mar 29 ($337,491 gross, 6,389 units). With 2 days remaining, projections range $360–363K. Finance P&amp;L detail (refunds, promos, fee breakdown) sourced from Unified Transaction Report through Mar 25.
+    <strong style="color:var(--fg);">Mar 2026</strong> — Confirmed from Amazon Payments Summary PDF (Mar 1–31, 2026). FBA product sales $358,593 · Promo rebates (−$27,406) · Refunds (−$6,636) · Inventory &amp; shipping credits (+$8,338) · Net Income $332,889 · Expenses (−$83,202) · Net Settlement $249,687 · Bank Transfer $231,889 (retained $17,797 in Amazon account). Ad spend ~$27,141 billed separately.
     &nbsp;·&nbsp;
-    <strong style="color:var(--fg);">Ad spend</strong> (~$23,765 MTD) is billed separately via Amazon Advertising Console and does not appear in the Amazon Payments Summary.
+    <strong style="color:var(--fg);">Ad spend</strong> — Mar final ~$29,400; Apr MTD $3,296 (5 days, on track for ~$30,000 full month) — billed separately via Amazon Advertising Console and does not appear in the Amazon Payments Summary. · <strong style="color:var(--fg);">Apr 2026</strong> — 4 days MTD ($45,536 gross, $11,384/day). Full-month projection ~$341,520 using base-case daily rate. Fee amounts are projected at Feb 2026 benchmark rates.
   </div>
 
 </main>
