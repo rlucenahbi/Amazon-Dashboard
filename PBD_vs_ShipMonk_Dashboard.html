@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PBD vs ShipMonk — Shipping Performance</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #20243a;
+    --border: #2a2d3e;
+    --accent: #6c63ff;
+    --accent2: #00d4aa;
+    --accent3: #ff6b6b;
+    --accent4: #ffd166;
+    --text: #e2e8f0;
+    --text-muted: #8892a4;
+    --text-dim: #4a5568;
+    --green: #10b981;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --pbd: #00d4aa;
+    --sm: #6c63ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-left h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .header-left p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+  .logo { font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; }
+
+  /* Segment Toggle */
+  .seg-toggle {
+    display: flex;
+    gap: 8px;
+    background: var(--card);
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid var(--border);
+  }
+  .seg-btn {
+    padding: 7px 20px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .seg-btn.active {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(108,99,255,0.4);
+  }
+  .seg-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+
+  /* VS Banner */
+  .vs-banner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 28px;
+    margin-bottom: 24px;
+  }
+  .vs-side { display: flex; flex-direction: column; gap: 4px; }
+  .vs-side.right { text-align: right; }
+  .vs-name { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+  .vs-name.pbd { color: var(--pbd); }
+  .vs-name.sm { color: var(--sm); }
+  .vs-sub { font-size: 12px; color: var(--text-muted); }
+  .vs-center { font-size: 28px; font-weight: 900; color: var(--text-dim); }
+  .vs-metric { font-size: 36px; font-weight: 800; }
+  .vs-metric.pbd { color: var(--pbd); }
+  .vs-metric.sm { color: var(--sm); }
+  .vs-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .vs-winner { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 4px; }
+  .winner-sm { background: rgba(108,99,255,0.15); color: var(--sm); }
+  .winner-pbd { background: rgba(0,212,170,0.15); color: var(--pbd); }
+
+  /* KPI Row */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .kpi-card.blue::before { background: var(--sm); }
+  .kpi-card.teal::before { background: var(--pbd); }
+  .kpi-card.green::before { background: var(--green); }
+  .kpi-card.yellow::before { background: var(--accent4); }
+  .kpi-card.red::before { background: var(--red); }
+  .kpi-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
+  .kpi-split { display: flex; gap: 16px; margin: 8px 0 4px; align-items: flex-end; }
+  .kpi-half { display: flex; flex-direction: column; }
+  .kpi-half-label { font-size: 10px; color: var(--text-muted); font-weight: 600; margin-bottom: 2px; }
+  .kpi-value { font-size: 28px; font-weight: 700; color: #fff; line-height: 1; }
+  .kpi-value.sm { color: var(--sm); }
+  .kpi-value.pbd { color: var(--pbd); }
+  .kpi-sub { font-size: 12px; color: var(--text-muted); }
+  .kpi-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .badge-green { background: rgba(16,185,129,0.15); color: var(--green); }
+  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
+
+  /* Grid layouts */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Chart containers */
+  .chart-wrap { position: relative; height: 280px; }
+  .chart-wrap-sm { position: relative; height: 200px; }
+  .chart-wrap-lg { position: relative; height: 320px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .data-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(42,45,62,0.5);
+    color: var(--text);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .carrier-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* SLA section */
+  .sla-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .sla-box {
+    background: var(--card2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .sla-box .lbl { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+  .sla-box .val { font-size: 28px; font-weight: 700; }
+  .sla-box .cnt { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .sla-green .val { color: var(--green); }
+  .sla-yellow .val { color: var(--yellow); }
+  .sla-red .val { color: var(--red); }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+
+  /* Carrier colors */
+  .c-lasership { color: #6c63ff; }
+  .c-usps { color: #00d4aa; }
+  .c-ontrac { color: #ff6b6b; }
+  .c-ups { color: #ffd166; }
+  .c-intl { color: #a78bfa; }
+  .c-other { color: #94a3b8; }
+
+  .pill-ontrac    { background: rgba(108,99,255,0.15);  color: #6c63ff; }
+  .pill-usps      { background: rgba(0,212,170,0.15);   color: #00d4aa; }
+  .pill-cirro     { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+  .pill-ups       { background: rgba(255,209,102,0.15); color: #ffd166; }
+  .pill-dhl       { background: rgba(167,139,250,0.15); color: #a78bfa; }
+  .pill-dhlecom   { background: rgba(251,146,60,0.15);  color: #fb923c; }
+  .pill-passport  { background: rgba(56,189,248,0.15);  color: #38bdf8; }
+  .pill-other     { background: rgba(148,163,184,0.15); color: #94a3b8; }
+  .pill-pbd       { background: rgba(0,212,170,0.15);   color: #00d4aa; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .subtitle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tab-row { display: flex; gap: 6px; }
+  .tab-btn {
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  .tab-btn.active {
+    background: rgba(108,99,255,0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .insight-box {
+    background: rgba(108,99,255,0.07);
+    border: 1px solid rgba(108,99,255,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+  .insight-box strong { color: var(--accent); }
+
+  /* Geo section */
+  .geo-section { margin-bottom: 24px; }
+  .geo-note {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+    text-align: center;
+  }
+  .bar-spark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .bar-spark-fill {
+    height: 5px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .flag { font-size: 16px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1>📦 Shipping Performance Comparison</h1>
+    <p>PBD vs ShipMonk · Dec 2025 – Mar 2026 · Delivered orders only</p>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+    <div class="seg-toggle">
+      <button class="seg-btn active" onclick="setSeg('all')">All Orders</button>
+      <button class="seg-btn" onclick="setSeg('us')">🇺🇸 US Only</button>
+      <button class="seg-btn" onclick="setSeg('intl')">🌍 International</button>
+    </div>
+    <span class="logo">LIVING WELL</span>
+  </div>
+</div>
+
+<!-- VS BANNER -->
+<div class="vs-banner">
+  <div class="vs-side">
+    <span class="vs-name sm">ShipMonk</span>
+    <span class="vs-sub" id="sm-count">237 delivered orders</span>
+    <div style="margin-top:8px;">
+      <span class="vs-label">Avg Transit</span>
+      <div class="vs-metric sm" id="sm-avg">3.70d</div>
+    </div>
+  </div>
+  <div style="text-align:center;">
+    <div class="vs-center">VS</div>
+    <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">avg calendar days</div>
+    <div style="margin-top:12px;padding:8px 16px;background:rgba(108,99,255,0.1);border-radius:8px;border:1px solid rgba(108,99,255,0.2);">
+      <div style="font-size:11px;color:var(--text-muted);">ShipMonk advantage</div>
+      <div style="font-size:22px;font-weight:800;color:var(--sm);" id="advantage">2.02d faster</div>
+    </div>
+  </div>
+  <div class="vs-side right">
+    <span class="vs-name pbd">PBD</span>
+    <span class="vs-sub" id="pbd-count">72,989 delivered orders</span>
+    <div style="margin-top:8px;">
+      <span class="vs-label">Avg Transit</span>
+      <div class="vs-metric pbd" id="pbd-avg">5.72d</div>
+    </div>
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-row" id="kpi-row">
+  <div class="kpi-card blue">
+    <div class="kpi-label">Avg Calendar Days</div>
+    <div class="kpi-split">
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--sm)">ShipMonk</span>
+        <span class="kpi-value sm" id="k-sm-cal">3.70</span>
+      </div>
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--pbd)">PBD</span>
+        <span class="kpi-value pbd" id="k-pbd-cal">5.72</span>
+      </div>
+    </div>
+    <span class="kpi-badge badge-green" id="k-cal-badge">SM 35% faster</span>
+  </div>
+  <div class="kpi-card teal">
+    <div class="kpi-label">Avg Business Days</div>
+    <div class="kpi-split">
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--sm)">ShipMonk</span>
+        <span class="kpi-value sm" id="k-sm-bd">2.60</span>
+      </div>
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--pbd)">PBD</span>
+        <span class="kpi-value pbd" id="k-pbd-bd">4.42</span>
+      </div>
+    </div>
+    <span class="kpi-badge badge-green" id="k-bd-badge">SM 41% faster</span>
+  </div>
+  <div class="kpi-card green">
+    <div class="kpi-label">Orders Analyzed</div>
+    <div class="kpi-split">
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--sm)">ShipMonk</span>
+        <span class="kpi-value sm" id="k-sm-n">237</span>
+      </div>
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--pbd)">PBD</span>
+        <span class="kpi-value pbd" id="k-pbd-n">72,989</span>
+      </div>
+    </div>
+    <span class="kpi-sub">Delivered orders · Dec 1+</span>
+  </div>
+  <div class="kpi-card yellow">
+    <div class="kpi-label">% Delivered ≤ 3 Days</div>
+    <div class="kpi-split">
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--sm)">ShipMonk</span>
+        <span class="kpi-value sm" id="k-sm-3d">40.9%</span>
+      </div>
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--pbd)">PBD</span>
+        <span class="kpi-value pbd" id="k-pbd-3d">14.9%</span>
+      </div>
+    </div>
+    <span class="kpi-badge badge-green">SM 2.7× more 3-day</span>
+  </div>
+  <div class="kpi-card red">
+    <div class="kpi-label">SLA Compliance (weekday, pre-noon)</div>
+    <div class="kpi-split">
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--sm)">ShipMonk</span>
+        <span class="kpi-value sm" id="k-sm-sla">98.2%</span>
+      </div>
+      <div class="kpi-half">
+        <span class="kpi-half-label" style="color:var(--pbd)">PBD</span>
+        <span class="kpi-value pbd" id="k-pbd-sla">71.1%</span>
+      </div>
+    </div>
+    <span class="kpi-badge badge-red">PBD misses 29% of weekday pre-noon orders</span>
+  </div>
+</div>
+
+<!-- MONTHLY TREND -->
+<div class="card" style="margin-bottom:24px;">
+  <div class="subtitle-row">
+    <div class="card-title" style="margin-bottom:0;"><span class="dot" style="background:var(--accent)"></span>Monthly Avg Transit Days</div>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="setDayMode('cal',this)">Calendar Days</button>
+      <button class="tab-btn" onclick="setDayMode('biz',this)">Business Days</button>
+    </div>
+  </div>
+  <div style="margin-top:18px;" class="chart-wrap"><canvas id="trendChart"></canvas></div>
+</div>
+
+<!-- CARRIER PERFORMANCE -->
+<div class="section-label">Carrier Performance</div>
+<div class="grid-2">
+  <!-- ShipMonk Carriers -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--sm)"></span>ShipMonk — by Carrier</div>
+    <table class="data-table" id="sm-carrier-table">
+      <thead>
+        <tr>
+          <th>Carrier</th>
+          <th class="num">Orders</th>
+          <th class="num">Avg Cal Days</th>
+          <th class="num">Avg Biz Days</th>
+          <th class="num">% of Volume</th>
+        </tr>
+      </thead>
+      <tbody id="sm-carrier-tbody"></tbody>
+    </table>
+    <div class="chart-wrap-sm" style="margin-top:18px;"><canvas id="smCarrierPie"></canvas></div>
+  </div>
+
+  <!-- PBD Carriers -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--pbd)"></span>PBD — by Carrier</div>
+    <table class="data-table" id="pbd-carrier-table">
+      <thead>
+        <tr>
+          <th>Carrier</th>
+          <th class="num">Orders</th>
+          <th class="num">Avg Cal Days</th>
+          <th class="num">Avg Biz Days</th>
+          <th class="num">% of Volume</th>
+        </tr>
+      </thead>
+      <tbody id="pbd-carrier-tbody"></tbody>
+    </table>
+    <div class="chart-wrap-sm" style="margin-top:18px;"><canvas id="pbdCarrierPie"></canvas></div>
+  </div>
+</div>
+
+<!-- CARRIER COMPARISON BAR -->
+<div class="card" style="margin-bottom:24px;">
+  <div class="card-title"><span class="dot" style="background:var(--accent4)"></span>Common Carrier Avg Transit Comparison (Calendar Days)</div>
+  <div class="chart-wrap"><canvas id="carrierCompBar"></canvas></div>
+</div>
+
+<!-- GEOGRAPHIC BREAKDOWN -->
+<div class="section-label" id="geo-section-label">Geographic Breakdown</div>
+<div class="geo-section" id="geo-section">
+  <!-- All: placeholder -->
+  <div id="geo-all" class="geo-note">
+    Select <strong style="color:var(--sm)">US Only</strong> or <strong style="color:var(--pbd)">International</strong> to see geographic breakdowns.
+  </div>
+
+  <!-- US: top 10 states -->
+  <div id="geo-us" style="display:none;">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--sm)"></span>ShipMonk — Top 10 States</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th><th>State</th><th class="num">Orders</th><th class="num">Avg Transit</th><th class="num">Share</th>
+            </tr>
+          </thead>
+          <tbody id="geo-sm-states"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--pbd)"></span>PBD — Top 10 States</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th><th>State</th><th class="num">Orders</th><th class="num">Avg Transit</th><th class="num">Share</th>
+            </tr>
+          </thead>
+          <tbody id="geo-pbd-states"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card" style="margin-top:0;">
+      <div class="card-title"><span class="dot" style="background:var(--accent4)"></span>Avg Transit by State — Common Top States (Calendar Days)</div>
+      <div class="chart-wrap"><canvas id="stateCompChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Intl: top 5 countries -->
+  <div id="geo-intl" style="display:none;">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--sm)"></span>ShipMonk — Countries</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th><th>Country</th><th class="num">Orders</th><th class="num">Avg Transit</th><th class="num">Share</th>
+            </tr>
+          </thead>
+          <tbody id="geo-sm-countries"></tbody>
+        </table>
+        <div class="insight-box" style="margin-top:12px;">ShipMonk only has <strong>5 international orders</strong> so far. The data here is very limited and not yet statistically meaningful.</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--pbd)"></span>PBD — Top 5 Countries</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th><th>Country</th><th class="num">Orders</th><th class="num">Avg Transit</th><th class="num">Share</th>
+            </tr>
+          </thead>
+          <tbody id="geo-pbd-countries"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERY DISTRIBUTION -->
+<div class="section-label">Delivery Day Distribution</div>
+<div class="card" style="margin-bottom:24px;">
+  <div class="subtitle-row">
+    <div class="card-title" style="margin-bottom:0;"><span class="dot" style="background:var(--accent2)"></span>% of Orders Delivered by Day</div>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="setDistMode('pct',this)">% Per Day</button>
+      <button class="tab-btn" onclick="setDistMode('cum',this)">Cumulative %</button>
+    </div>
+  </div>
+  <div style="margin-top:18px;" class="chart-wrap-lg"><canvas id="distChart"></canvas></div>
+</div>
+
+<!-- Distribution Table -->
+<div class="card" style="margin-bottom:24px;">
+  <div class="card-title"><span class="dot" style="background:var(--accent3)"></span>Delivery Day Detail Table</div>
+  <table class="data-table" id="dist-table">
+    <thead>
+      <tr>
+        <th>Days</th>
+        <th class="num" style="color:var(--sm)">SM %</th>
+        <th class="num" style="color:var(--sm)">SM Cumul.</th>
+        <th class="num" style="color:var(--pbd)">PBD %</th>
+        <th class="num" style="color:var(--pbd)">PBD Cumul.</th>
+        <th class="num">SM Edge</th>
+      </tr>
+    </thead>
+    <tbody id="dist-tbody"></tbody>
+  </table>
+</div>
+
+<!-- SLA DEEP DIVE -->
+<div class="section-label">Fulfillment SLA — Pre-Noon Orders (Same-Day Ship)</div>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--sm)"></span>ShipMonk SLA Breakdown</div>
+    <div class="sla-row">
+      <div class="sla-box sla-green">
+        <div class="lbl">All Days</div>
+        <div class="val">96.6%</div>
+        <div class="cnt">199 / 206</div>
+      </div>
+      <div class="sla-box sla-green">
+        <div class="lbl">Weekdays Only</div>
+        <div class="val">98.2%</div>
+        <div class="cnt">164 / 167</div>
+      </div>
+      <div class="sla-box sla-yellow">
+        <div class="lbl">Weekends</div>
+        <div class="val">89.7%</div>
+        <div class="cnt">35 / 39</div>
+      </div>
+    </div>
+    <div class="insight-box">
+      ShipMonk fulfills <strong>7 days/week</strong>. Even on weekends, <strong>89.7%</strong> of pre-noon orders ship same day.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--pbd)"></span>PBD SLA Breakdown</div>
+    <div class="sla-row">
+      <div class="sla-box sla-red">
+        <div class="lbl">All Days</div>
+        <div class="val">51.3%</div>
+        <div class="cnt">14,701 / 28,633</div>
+      </div>
+      <div class="sla-box sla-yellow">
+        <div class="lbl">Weekdays Only</div>
+        <div class="val">71.1%</div>
+        <div class="cnt">14,701 / 20,688</div>
+      </div>
+      <div class="sla-box sla-red">
+        <div class="lbl">Weekends</div>
+        <div class="val">0.0%</div>
+        <div class="cnt">0 / 7,945</div>
+      </div>
+    </div>
+    <div class="insight-box">
+      PBD does <strong>not</strong> fulfill on weekends (0.0%). Even removing weekends, PBD weekday SLA (<strong>71.1%</strong>) is <strong>27.1 pts below</strong> ShipMonk's 98.2%. The gap is <em>not just weekends</em> — real fulfillment delays exist. Based on <code>finalized_at</code> timestamp.
+    </div>
+  </div>
+</div>
+
+<!-- SLA Monthly -->
+<div class="card" style="margin-bottom:24px;">
+  <div class="subtitle-row">
+    <div class="card-title" style="margin-bottom:0;"><span class="dot" style="background:var(--accent4)"></span>SLA Compliance by Month (Pre-Noon, <code style="font-size:11px;background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;">finalized_at</code>)</div>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="setSlaView('all',this)">All Days</button>
+      <button class="tab-btn" onclick="setSlaView('wkd',this)">Weekdays Only</button>
+    </div>
+  </div>
+  <div style="margin-top:18px;" class="chart-wrap"><canvas id="slaMonthChart"></canvas></div>
+</div>
+
+<!-- SUMMARY TABLE -->
+<div class="section-label">Full Summary</div>
+<div class="card" style="margin-bottom:24px;">
+  <div class="card-title"><span class="dot" style="background:var(--accent2)"></span>Head-to-Head Summary</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th class="num" style="color:var(--sm)">ShipMonk</th>
+        <th class="num" style="color:var(--pbd)">PBD</th>
+        <th class="num">Winner</th>
+      </tr>
+    </thead>
+    <tbody id="summary-tbody"></tbody>
+  </table>
+</div>
+
+<script>
+// =====================
+// DATA
+// =====================
+const DATA = {
+  all: {
+    sm: { cal: 3.70, biz: 2.60, n: 237,
+          monthly_cal: [3.41, 3.83, 3.54, 3.89],
+          monthly_biz: [2.38, 2.72, 2.51, 2.74],
+          sla_all: 96.6, sla_wkd: 98.2,
+          carriers: [
+            {name:'OnTrac',       n:108, cal:2.68, biz:1.80, pill:'ontrac',  note:'incl. LaserShip (same co.)'},
+            {name:'USPS',         n:53,  cal:4.46, biz:3.02, pill:'usps'},
+            {name:'Cirro',        n:35,  cal:3.43, biz:2.71, pill:'cirro',   note:'USPS last mile'},
+            {name:'DHL eCommerce',n:34,  cal:5.26, biz:3.79, pill:'dhlecom', note:'USPS last mile'},
+            {name:'DHL',          n:5,   cal:9.13, biz:6.60, pill:'dhl'},
+            {name:'UPS',          n:2,   cal:2.84, biz:2.50, pill:'ups'},
+          ],
+          dist_pct:  [0.4, 14.3, 26.2, 24.1, 16.9, 8.9, 5.5, 1.3, 1.3, 1.1],
+          dist_cum:  [0.4, 14.7, 40.9, 65.0, 81.9, 90.8, 96.3, 97.6, 98.9, 100.0],
+        },
+    pbd: { cal: 5.72, biz: 4.42, n: 72989,
+           monthly_cal: [5.71, 5.72, 5.73, 5.71],
+           monthly_biz: [4.41, 4.43, 4.42, 4.40],
+           sla_all: 51.3, sla_wkd: 71.1,
+           carriers: [
+             {name:'OSM',       n:63543, cal:4.76, biz:3.73, pill:'usps'},
+             {name:'PBD/Other', n:5479,  cal:12.52, biz:9.33, pill:'pbd'},
+             {name:'DHL',       n:3600,  cal:11.15, biz:8.28, pill:'dhl',  note:'International'},
+             {name:'Intl Agg.', n:1875,  cal:13.41, biz:9.87, pill:'intl', note:'International aggregator'},
+           ],
+           dist_pct:  [0.0, 2.5, 12.4, 23.1, 20.6, 11.9, 9.7, 5.5, 2.7, 11.6],
+           dist_cum:  [0.0, 2.5, 14.9, 38.0, 58.6, 70.5, 80.2, 85.7, 88.4, 100.0],
+         },
+  },
+  us: {
+    sm: { cal: 3.58, biz: 2.51, n: 232,
+          monthly_cal: [3.30, 3.71, 3.42, 3.77],
+          monthly_biz: [2.30, 2.63, 2.43, 2.66],
+          sla_all: 96.6, sla_wkd: 98.2,
+          carriers: [
+            {name:'OnTrac',       n:108, cal:2.68, biz:1.80, pill:'ontrac',  note:'incl. LaserShip (same co.)'},
+            {name:'USPS',         n:53,  cal:4.46, biz:3.02, pill:'usps'},
+            {name:'Cirro',        n:35,  cal:3.43, biz:2.71, pill:'cirro',   note:'USPS last mile'},
+            {name:'DHL eCommerce',n:34,  cal:5.26, biz:3.79, pill:'dhlecom', note:'USPS last mile'},
+            {name:'UPS',          n:2,   cal:2.84, biz:2.50, pill:'ups'},
+          ],
+          dist_pct:  [0.4, 14.7, 26.7, 24.6, 17.2, 9.1, 5.2, 1.3, 0.4, 0.4],
+          dist_cum:  [0.4, 15.1, 41.8, 66.4, 83.6, 92.7, 97.9, 99.2, 99.6, 100.0],
+        },
+    pbd: { cal: 4.76, biz: 3.73, n: 63540,
+           monthly_cal: [4.74, 4.77, 4.78, 4.73],
+           monthly_biz: [3.71, 3.75, 3.74, 3.70],
+           sla_all: 51.3, sla_wkd: 71.1,
+           carriers: [
+             {name:'OSM', n:63540, cal:4.76, biz:3.73, pill:'usps'},
+           ],
+           dist_pct:  [0.0, 2.9, 13.9, 26.0, 23.2, 13.4, 9.4, 5.1, 2.6, 3.5],
+           dist_cum:  [0.0, 2.9, 16.8, 42.8, 66.0, 79.4, 88.8, 93.9, 96.5, 100.0],
+         },
+  },
+  intl: {
+    sm: { cal: 9.13, biz: 6.60, n: 5,
+          monthly_cal: [null, null, null, 9.13],
+          monthly_biz: [null, null, null, 6.60],
+          sla_all: null, sla_wkd: null,
+          carriers: [
+            {name:'DHL', n:5, cal:9.13, biz:6.60, pill:'dhl'},
+          ],
+          dist_pct:  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 100.0],
+          dist_cum:  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 100.0],
+        },
+    pbd: { cal: 12.18, biz: 9.04, n: 9449,
+           monthly_cal: [12.21, 12.14, 12.18, 12.22],
+           monthly_biz: [9.06, 9.02, 9.05, 9.08],
+           sla_all: null, sla_wkd: null,
+           carriers: [
+             {name:'Intl/Other', n:9449, cal:12.18, biz:9.04, pill:'intl'},
+           ],
+           dist_pct:  [0.0, 0.0, 0.0, 0.0, 0.0, 4.2, 10.8, 15.8, 8.5, 60.7],
+           dist_cum:  [0.0, 0.0, 0.0, 0.0, 0.0, 4.2, 15.0, 30.8, 39.3, 100.0],
+         },
+  },
+};
+
+// =====================
+// GEOGRAPHIC DATA
+// =====================
+const GEO = {
+  sm_states: [
+    {rank:1,  state:'Texas',        abbr:'TX', n:28,  pct:12.1, cal:4.04},
+    {rank:2,  state:'California',   abbr:'CA', n:25,  pct:10.8, cal:2.95},
+    {rank:3,  state:'Florida',      abbr:'FL', n:21,  pct:9.1,  cal:2.92},
+    {rank:4,  state:'Arizona',      abbr:'AZ', n:15,  pct:6.5,  cal:3.54},
+    {rank:5,  state:'New York',     abbr:'NY', n:12,  pct:5.2,  cal:3.34},
+    {rank:6,  state:'Ohio',         abbr:'OH', n:11,  pct:4.7,  cal:3.84},
+    {rank:7,  state:'Missouri',     abbr:'MO', n:8,   pct:3.4,  cal:4.46},
+    {rank:8,  state:'Pennsylvania', abbr:'PA', n:7,   pct:3.0,  cal:3.06},
+    {rank:9,  state:'New Jersey',   abbr:'NJ', n:7,   pct:3.0,  cal:2.99},
+    {rank:10, state:'Washington',   abbr:'WA', n:7,   pct:3.0,  cal:3.46},
+  ],
+  pbd_states: [
+    {rank:1,  state:'California',     abbr:'CA', n:8931, pct:14.1, cal:3.96},
+    {rank:2,  state:'Florida',        abbr:'FL', n:4568, pct:7.2,  cal:4.31},
+    {rank:3,  state:'Texas',          abbr:'TX', n:4380, pct:6.9,  cal:5.38},
+    {rank:4,  state:'New York',       abbr:'NY', n:2684, pct:4.2,  cal:5.91},
+    {rank:5,  state:'Washington',     abbr:'WA', n:2612, pct:4.1,  cal:4.52},
+    {rank:6,  state:'Colorado',       abbr:'CO', n:2142, pct:3.4,  cal:5.62},
+    {rank:7,  state:'Pennsylvania',   abbr:'PA', n:2063, pct:3.2,  cal:5.20},
+    {rank:8,  state:'North Carolina', abbr:'NC', n:1828, pct:2.9,  cal:4.20},
+    {rank:9,  state:'Michigan',       abbr:'MI', n:1773, pct:2.8,  cal:4.07},
+    {rank:10, state:'Ohio',           abbr:'OH', n:1750, pct:2.8,  cal:4.59},
+  ],
+  sm_countries: [
+    {rank:1, country:'Canada',              flag:'🇨🇦', n:3, pct:60.0, cal:8.03},
+    {rank:2, country:'United Kingdom',      flag:'🇬🇧', n:1, pct:20.0, cal:8.68},
+    {rank:3, country:'New Zealand',         flag:'🇳🇿', n:1, pct:20.0, cal:12.88},
+  ],
+  pbd_countries: [
+    {rank:1, country:'Canada',          flag:'🇨🇦', n:4371, pct:46.3, cal:11.18},
+    {rank:2, country:'United Kingdom',  flag:'🇬🇧', n:2052, pct:21.7, cal:9.24},
+    {rank:3, country:'Australia',       flag:'🇦🇺', n:1930, pct:20.4, cal:15.86},
+    {rank:4, country:'New Zealand',     flag:'🇳🇿', n:608,  pct:6.4,  cal:13.84},
+    {rank:5, country:'Ireland',         flag:'🇮🇪', n:74,   pct:0.8,  cal:17.84},
+  ],
+};
+
+const MONTHS = ['Dec 2025','Jan 2026','Feb 2026','Mar 2026'];
+const DAY_LABELS = ['1 day','2 days','3 days','4 days','5 days','6 days','7 days','8 days','9 days','10+ days'];
+// SLA monthly = all pre-noon (finalized_at based)
+const SLA_MONTHS = {
+  sm:  [100.0, 90.6, 100.0, 95.7],
+  pbd: [53.2,  50.1,  52.5, 57.3],
+};
+// Weekday-only SLA monthly (finalized_at based)
+const SLA_MONTHS_WKD = {
+  sm:  [100.0, 90.6, 100.0, 95.7],
+  pbd: [70.3,  67.3,  74.6, 76.2],
+};
+
+let seg = 'all';
+let dayMode = 'cal';
+let distMode = 'pct';
+let charts = {};
+
+// =====================
+// SEGMENT TOGGLE
+// =====================
+function setSeg(s) {
+  seg = s;
+  document.querySelectorAll('.seg-btn').forEach((b,i) => {
+    b.classList.toggle('active', ['all','us','intl'][i]===s);
+  });
+  updateAll();
+}
+
+function setDayMode(m, btn) {
+  dayMode = m;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if(b.onclick && b.onclick.toString().includes('setDayMode'))
+      b.classList.toggle('active', b===btn);
+  });
+  updateTrendChart();
+}
+
+function setDistMode(m, btn) {
+  distMode = m;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if(b.onclick && b.onclick.toString().includes('setDistMode'))
+      b.classList.toggle('active', b===btn);
+  });
+  updateDistChart();
+}
+
+function fmt(v, dec=2) {
+  if(v===null) return '—';
+  return v.toFixed(dec);
+}
+function fmtN(v) {
+  if(v===null) return '—';
+  return v.toLocaleString();
+}
+
+// =====================
+// UPDATE ALL
+// =====================
+function updateAll() {
+  const d = DATA[seg];
+  const sm = d.sm, pbd = d.pbd;
+
+  // VS Banner
+  document.getElementById('sm-avg').textContent = fmt(sm.cal)+'d';
+  document.getElementById('pbd-avg').textContent = fmt(pbd.cal)+'d';
+  document.getElementById('sm-count').textContent = fmtN(sm.n) + ' delivered orders';
+  document.getElementById('pbd-count').textContent = fmtN(pbd.n) + ' delivered orders';
+  const adv = pbd.cal - sm.cal;
+  document.getElementById('advantage').textContent = fmt(adv)+'d faster';
+
+  // KPI
+  document.getElementById('k-sm-cal').textContent = fmt(sm.cal);
+  document.getElementById('k-pbd-cal').textContent = fmt(pbd.cal);
+  document.getElementById('k-sm-bd').textContent = fmt(sm.biz);
+  document.getElementById('k-pbd-bd').textContent = fmt(pbd.biz);
+  document.getElementById('k-sm-n').textContent = fmtN(sm.n);
+  document.getElementById('k-pbd-n').textContent = fmtN(pbd.n);
+  const pct_cal = ((pbd.cal - sm.cal)/pbd.cal*100).toFixed(0);
+  const pct_bd = ((pbd.biz - sm.biz)/pbd.biz*100).toFixed(0);
+  document.getElementById('k-cal-badge').textContent = 'SM '+pct_cal+'% faster';
+  document.getElementById('k-bd-badge').textContent = 'SM '+pct_bd+'% faster';
+
+  // 3-day delivery
+  document.getElementById('k-sm-3d').textContent = fmt(sm.dist_cum[2],1)+'%';
+  document.getElementById('k-pbd-3d').textContent = fmt(pbd.dist_cum[2],1)+'%';
+
+  // SLA
+  document.getElementById('k-sm-sla').textContent = sm.sla_wkd !== null ? sm.sla_wkd+'%' : '—';
+  document.getElementById('k-pbd-sla').textContent = pbd.sla_wkd !== null ? pbd.sla_wkd+'%' : '—';
+
+  updateTrendChart();
+  updateCarrierTables();
+  updateCarrierCharts();
+  updateDistChart();
+  updateDistTable();
+  updateSummaryTable();
+  updateGeo();
+}
+
+// =====================
+// TREND CHART
+// =====================
+function updateTrendChart() {
+  const d = DATA[seg];
+  const key = dayMode === 'cal' ? 'monthly_cal' : 'monthly_biz';
+  const label = dayMode === 'cal' ? 'Avg Calendar Days' : 'Avg Business Days';
+
+  const smData = d.sm[key];
+  const pbdData = d.pbd[key];
+
+  if(charts.trend) charts.trend.destroy();
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  charts.trend = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: MONTHS,
+      datasets: [
+        { label: 'ShipMonk', data: smData, backgroundColor: 'rgba(108,99,255,0.8)',
+          borderRadius: 6, borderSkipped: false },
+        { label: 'PBD', data: pbdData, backgroundColor: 'rgba(0,212,170,0.8)',
+          borderRadius: 6, borderSkipped: false },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#8892a4', font: {size:12} } },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y !== null ? ctx.parsed.y.toFixed(2)+'d' : '—'}`
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#8892a4' }, grid: { color: 'rgba(42,45,62,0.8)' } },
+        y: { ticks: { color: '#8892a4', callback: v => v+'d' },
+             grid: { color: 'rgba(42,45,62,0.8)' }, beginAtZero: true }
+      }
+    }
+  });
+}
+
+// =====================
+// CARRIER TABLES
+// =====================
+function updateCarrierTables() {
+  const d = DATA[seg];
+
+  function renderTable(tbody_id, carriers, total) {
+    const tbody = document.getElementById(tbody_id);
+    tbody.innerHTML = '';
+    carriers.forEach(c => {
+      const pct = (c.n / total * 100).toFixed(1);
+      const noteBadge = c.note ? `<span style="font-size:10px;color:var(--text-dim);margin-left:6px;">${c.note}</span>` : '';
+      tbody.innerHTML += `<tr>
+        <td><span class="carrier-pill pill-${c.pill}">${c.name}</span>${noteBadge}</td>
+        <td class="num">${fmtN(c.n)}</td>
+        <td class="num">${fmt(c.cal)}d</td>
+        <td class="num">${fmt(c.biz)}d</td>
+        <td class="num">${pct}%</td>
+      </tr>`;
+    });
+  }
+
+  renderTable('sm-carrier-tbody', d.sm.carriers, d.sm.n);
+  renderTable('pbd-carrier-tbody', d.pbd.carriers, d.pbd.n);
+}
+
+// =====================
+// CARRIER CHARTS
+// =====================
+function updateCarrierCharts() {
+  const d = DATA[seg];
+  const COLORS = {
+    ontrac: '#6c63ff', usps: '#00d4aa', cirro: '#ff6b6b',
+    ups: '#ffd166', dhl: '#a78bfa', dhlecom: '#fb923c',
+    passport: '#38bdf8', other: '#94a3b8', pbd: '#00d4aa'
+  };
+
+  function makePie(id, carriers, total) {
+    if(charts[id]) charts[id].destroy();
+    const ctx = document.getElementById(id).getContext('2d');
+    charts[id] = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: carriers.map(c=>c.name),
+        datasets: [{
+          data: carriers.map(c=>c.n),
+          backgroundColor: carriers.map(c => COLORS[c.pill] || '#94a3b8'),
+          borderWidth: 2,
+          borderColor: '#1a1d27',
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'right', labels: { color: '#8892a4', font: {size:11}, padding: 10 } },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.label}: ${(ctx.parsed/total*100).toFixed(1)}% (${ctx.parsed.toLocaleString()})`
+            }
+          }
+        }
+      }
+    });
+  }
+
+  makePie('smCarrierPie', d.sm.carriers, d.sm.n);
+  makePie('pbdCarrierPie', d.pbd.carriers, d.pbd.n);
+
+  // Comparison bar — only carriers that appear in both
+  const smMap = {};
+  d.sm.carriers.forEach(c => { smMap[c.name.toLowerCase()] = c; });
+  const pbdMap = {};
+  d.pbd.carriers.forEach(c => { pbdMap[c.name.toLowerCase()] = c; });
+
+  // Always show USPS side-by-side if available
+  const compCarriers = [];
+  ['lasership','usps','ontrac','ups'].forEach(key => {
+    if(smMap[key]) compCarriers.push({name: smMap[key].name, sm: smMap[key].cal, pbd: pbdMap[key]?.cal ?? null});
+  });
+
+  if(charts.carrierComp) charts.carrierComp.destroy();
+  if(compCarriers.length > 0) {
+    const ctx2 = document.getElementById('carrierCompBar').getContext('2d');
+    charts.carrierComp = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: compCarriers.map(c=>c.name),
+        datasets: [
+          { label: 'ShipMonk', data: compCarriers.map(c=>c.sm), backgroundColor: 'rgba(108,99,255,0.8)', borderRadius: 6, borderSkipped: false },
+          { label: 'PBD',      data: compCarriers.map(c=>c.pbd), backgroundColor: 'rgba(0,212,170,0.8)', borderRadius: 6, borderSkipped: false },
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: '#8892a4', font: {size:12} } },
+          tooltip: {
+            callbacks: {
+              label: ctx => ctx.parsed.y !== null ? ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}d` : ` ${ctx.dataset.label}: N/A`
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#8892a4' }, grid: { color: 'rgba(42,45,62,0.8)' } },
+          y: { ticks: { color: '#8892a4', callback: v => v+'d' }, grid: { color: 'rgba(42,45,62,0.8)' }, beginAtZero: true }
+        }
+      }
+    });
+  }
+}
+
+// =====================
+// DISTRIBUTION CHART
+// =====================
+function updateDistChart() {
+  const d = DATA[seg];
+  const smData = distMode === 'pct' ? d.sm.dist_pct : d.sm.dist_cum;
+  const pbdData = distMode === 'pct' ? d.pbd.dist_pct : d.pbd.dist_cum;
+
+  if(charts.dist) charts.dist.destroy();
+  const ctx = document.getElementById('distChart').getContext('2d');
+
+  if(distMode === 'cum') {
+    charts.dist = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: DAY_LABELS,
+        datasets: [
+          { label: 'ShipMonk', data: smData, borderColor: '#6c63ff', backgroundColor: 'rgba(108,99,255,0.1)', fill: true, tension: 0.3, pointRadius: 4 },
+          { label: 'PBD', data: pbdData, borderColor: '#00d4aa', backgroundColor: 'rgba(0,212,170,0.1)', fill: true, tension: 0.3, pointRadius: 4 },
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: '#8892a4', font: {size:12} } },
+          tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` } }
+        },
+        scales: {
+          x: { ticks: { color: '#8892a4' }, grid: { color: 'rgba(42,45,62,0.8)' } },
+          y: { ticks: { color: '#8892a4', callback: v => v+'%' }, grid: { color: 'rgba(42,45,62,0.8)' }, max: 100, beginAtZero: true }
+        }
+      }
+    });
+  } else {
+    charts.dist = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: DAY_LABELS,
+        datasets: [
+          { label: 'ShipMonk', data: smData, backgroundColor: 'rgba(108,99,255,0.8)', borderRadius: 4, borderSkipped: false },
+          { label: 'PBD', data: pbdData, backgroundColor: 'rgba(0,212,170,0.8)', borderRadius: 4, borderSkipped: false },
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: '#8892a4', font: {size:12} } },
+          tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` } }
+        },
+        scales: {
+          x: { ticks: { color: '#8892a4' }, grid: { color: 'rgba(42,45,62,0.8)' } },
+          y: { ticks: { color: '#8892a4', callback: v => v+'%' }, grid: { color: 'rgba(42,45,62,0.8)' }, beginAtZero: true }
+        }
+      }
+    });
+  }
+}
+
+// =====================
+// DISTRIBUTION TABLE
+// =====================
+function updateDistTable() {
+  const d = DATA[seg];
+  const tbody = document.getElementById('dist-tbody');
+  tbody.innerHTML = '';
+  DAY_LABELS.forEach((label, i) => {
+    const smPct = d.sm.dist_pct[i];
+    const pbdPct = d.pbd.dist_pct[i];
+    const smCum = d.sm.dist_cum[i];
+    const pbdCum = d.pbd.dist_cum[i];
+    const edge = smCum - pbdCum;
+    const edgeStyle = edge > 0 ? 'color:var(--sm)' : edge < 0 ? 'color:var(--pbd)' : '';
+    tbody.innerHTML += `<tr>
+      <td>${label}</td>
+      <td class="num" style="color:var(--sm)">${smPct.toFixed(1)}%</td>
+      <td class="num" style="color:var(--sm)">${smCum.toFixed(1)}%</td>
+      <td class="num" style="color:var(--pbd)">${pbdPct.toFixed(1)}%</td>
+      <td class="num" style="color:var(--pbd)">${pbdCum.toFixed(1)}%</td>
+      <td class="num" style="${edgeStyle}">${edge > 0 ? '+' : ''}${edge.toFixed(1)}%</td>
+    </tr>`;
+  });
+}
+
+// =====================
+// SLA MONTHLY CHART
+// =====================
+let slaView = 'all';
+function setSlaView(v, btn) {
+  slaView = v;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if(b.onclick && b.onclick.toString().includes('setSlaView'))
+      b.classList.toggle('active', b === btn);
+  });
+  buildSlaMonthChart();
+}
+
+function buildSlaMonthChart() {
+  const smData  = SLA_MONTHS.sm;
+  const pbdData = slaView === 'wkd' ? SLA_MONTHS_WKD.pbd : SLA_MONTHS.pbd;
+  const label   = slaView === 'wkd' ? 'Weekday Pre-Noon SLA' : 'All Days Pre-Noon SLA';
+
+  if(charts.slaMon) charts.slaMon.destroy();
+  const ctx = document.getElementById('slaMonthChart').getContext('2d');
+  charts.slaMon = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: MONTHS,
+      datasets: [
+        { label: 'ShipMonk', data: smData, borderColor: '#6c63ff', backgroundColor: 'rgba(108,99,255,0.15)', fill: true, tension: 0.3, pointRadius: 5 },
+        { label: 'PBD',      data: pbdData, borderColor: '#00d4aa', backgroundColor: 'rgba(0,212,170,0.15)', fill: true, tension: 0.3, pointRadius: 5 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#8892a4', font: {size:12} } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` } }
+      },
+      scales: {
+        x: { ticks: { color: '#8892a4' }, grid: { color: 'rgba(42,45,62,0.8)' } },
+        y: { ticks: { color: '#8892a4', callback: v => v+'%' }, grid: { color: 'rgba(42,45,62,0.8)' }, min: 0, max: 110 }
+      }
+    }
+  });
+}
+
+function initSlaMonthChart() { buildSlaMonthChart(); }
+
+// =====================
+// SUMMARY TABLE
+// =====================
+function updateSummaryTable() {
+  const d = DATA[seg];
+  const sm = d.sm, pbd = d.pbd;
+  const rows = [
+    ['Avg Calendar Days', fmt(sm.cal)+'d', fmt(pbd.cal)+'d', 'ShipMonk'],
+    ['Avg Business Days', fmt(sm.biz)+'d', fmt(pbd.biz)+'d', 'ShipMonk'],
+    ['Orders Analyzed', fmtN(sm.n), fmtN(pbd.n), '—'],
+    ['Delivered ≤ 2 days', fmt(sm.dist_cum[1],1)+'%', fmt(pbd.dist_cum[1],1)+'%', 'ShipMonk'],
+    ['Delivered ≤ 3 days', fmt(sm.dist_cum[2],1)+'%', fmt(pbd.dist_cum[2],1)+'%', 'ShipMonk'],
+    ['Delivered ≤ 5 days', fmt(sm.dist_cum[4],1)+'%', fmt(pbd.dist_cum[4],1)+'%', 'ShipMonk'],
+    ['SLA Compliance — all days', sm.sla_all !== null ? sm.sla_all+'%' : '—', pbd.sla_all !== null ? pbd.sla_all+'%' : '—', sm.sla_all !== null ? 'ShipMonk' : '—'],
+    ['SLA Compliance — weekday only', sm.sla_wkd !== null ? sm.sla_wkd+'%' : '—', pbd.sla_wkd !== null ? pbd.sla_wkd+'%' : '—', sm.sla_wkd !== null ? 'ShipMonk' : '—'],
+    ['Weekend Fulfillment', '7 days/week', 'Mon–Fri only', 'ShipMonk'],
+  ];
+  const tbody = document.getElementById('summary-tbody');
+  tbody.innerHTML = '';
+  rows.forEach(([metric, smV, pbdV, winner]) => {
+    const wStyle = winner === 'ShipMonk' ? 'color:var(--sm)' : winner === 'PBD' ? 'color:var(--pbd)' : 'color:var(--text-muted)';
+    const wIcon = winner === 'ShipMonk' ? '🏆 ShipMonk' : winner === 'PBD' ? '🏆 PBD' : winner;
+    tbody.innerHTML += `<tr>
+      <td>${metric}</td>
+      <td class="num" style="color:var(--sm)">${smV}</td>
+      <td class="num" style="color:var(--pbd)">${pbdV}</td>
+      <td class="num" style="${wStyle};font-weight:600">${wIcon}</td>
+    </tr>`;
+  });
+}
+
+// =====================
+// GEO BREAKDOWN
+// =====================
+function updateGeo() {
+  // Show/hide panels
+  document.getElementById('geo-all').style.display   = seg === 'all'  ? '' : 'none';
+  document.getElementById('geo-us').style.display    = seg === 'us'   ? '' : 'none';
+  document.getElementById('geo-intl').style.display  = seg === 'intl' ? '' : 'none';
+
+  if(seg === 'us') {
+    renderGeoTable('geo-sm-states',   GEO.sm_states,   232,  true);
+    renderGeoTable('geo-pbd-states',  GEO.pbd_states,  63543, true);
+    buildStateCompChart();
+  } else if(seg === 'intl') {
+    renderGeoTable('geo-sm-countries',  GEO.sm_countries,  5,    false);
+    renderGeoTable('geo-pbd-countries', GEO.pbd_countries, 9449, false);
+  }
+}
+
+function renderGeoTable(tbodyId, rows, total, isState) {
+  const tbody = document.getElementById(tbodyId);
+  tbody.innerHTML = '';
+  const maxN = rows[0].n;
+  rows.forEach(r => {
+    const sharePct = (r.n / total * 100).toFixed(1);
+    const barW = Math.round(r.n / maxN * 80);
+    const label = isState ? `${r.state} <span style="color:var(--text-dim);font-size:11px;">${r.abbr}</span>` : `<span class="flag">${r.flag}</span> ${r.country}`;
+    tbody.innerHTML += `<tr>
+      <td style="color:var(--text-dim);font-size:12px;">${r.rank}</td>
+      <td>${label}</td>
+      <td class="num">${r.n.toLocaleString()}<div class="bar-spark"><div class="bar-spark-fill" style="width:${barW}px;background:${tbodyId.includes('sm') ? 'rgba(108,99,255,0.6)' : 'rgba(0,212,170,0.6)'}"></div></div></td>
+      <td class="num">${r.cal.toFixed(2)}d</td>
+      <td class="num" style="color:var(--text-muted)">${sharePct}%</td>
+    </tr>`;
+  });
+}
+
+function buildStateCompChart() {
+  // States present in both top-10
+  const smMap = {};
+  GEO.sm_states.forEach(s => { smMap[s.state] = s.cal; });
+  const matches = GEO.pbd_states.filter(s => smMap[s.state]);
+
+  if(charts.stateComp) charts.stateComp.destroy();
+  const ctx = document.getElementById('stateCompChart').getContext('2d');
+  charts.stateComp = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: matches.map(s => s.abbr),
+      datasets: [
+        { label: 'ShipMonk', data: matches.map(s => smMap[s.state]),
+          backgroundColor: 'rgba(108,99,255,0.8)', borderRadius: 6, borderSkipped: false },
+        { label: 'PBD',      data: matches.map(s => s.cal),
+          backgroundColor: 'rgba(0,212,170,0.8)',  borderRadius: 6, borderSkipped: false },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#8892a4', font: {size:12} } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}d` } }
+      },
+      scales: {
+        x: { ticks: { color: '#8892a4' }, grid: { color: 'rgba(42,45,62,0.8)' } },
+        y: { ticks: { color: '#8892a4', callback: v => v+'d' }, grid: { color: 'rgba(42,45,62,0.8)' }, beginAtZero: true }
+      }
+    }
+  });
+}
+
+// =====================
+// INIT
+// =====================
+updateAll();
+initSlaMonthChart();
+</script>
+</body>
+</html>
