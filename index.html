@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>HBI Amazon Sales Dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -414,14 +417,14 @@
   </div>
   <div class="header-right">
     <div class="status-badge"><div class="dot"></div> Live Data · Amazon Seller Central</div>
-    <div class="timestamp">Refreshed: Jul 3, 2026 — Revenue &amp; Products via Amazon Seller Central · through 2026-07-01</div>
+    <div class="timestamp">Refreshed: Jul 4, 2026 — Revenue &amp; Products via Amazon Seller Central · through 2026-07-02</div>
   </div>
 </header>
 
 <!-- ALERT BANNER -->
 <div class="alert-banner" style="background:linear-gradient(90deg,rgba(59,130,246,0.12) 0%,rgba(59,130,246,0.04) 100%);border-bottom:1px solid rgba(59,130,246,0.25);">
   <span class="alert-icon" style="color:var(--blue);">📊</span>
-  <span class="alert-text" style="color:#86efac;"><strong style="color:var(--blue);">July 2026 MTD (Seller Central Data):</strong> Jul 1 (1 of 31 days): <strong>$10,644</strong> revenue · $10,644/day avg · −4.5% vs June $11,146/day · 30 days remaining · pace ~$330K | June 2026 FINAL: <strong>$334,367</strong> ($11,146/day) · baseline | May FINAL: $342,451</span>
+  <span class="alert-text" style="color:#86efac;"><strong style="color:var(--blue);">July 2026 MTD (Seller Central Data):</strong> Jul 1–2 (2 of 31 days): <strong>$22,298</strong> revenue · $11,149/day avg · +0.0% vs June $11,146/day · 29 days remaining · pace ~$346K | June 2026 FINAL: <strong>$334,367</strong> ($11,146/day) · baseline | May FINAL: $342,451</span>
 </div>
 <div style="display:flex;align-items:flex-start;gap:10px;background:rgba(249,115,22,0.10);border:1px solid rgba(249,115,22,0.35);border-radius:12px;padding:12px 16px;margin:10px 0;">
   <span style="font-size:18px;">🔥</span>
@@ -445,21 +448,21 @@
 <main>
 
   <!-- MTD KPIs -->
-  <div class="section-label">July 2026 — MTD · Jul 1–1 (1 of 31 Days · SC $10,644 actual · $10,644/day · vs June $11,146/day)</div>
+  <div class="section-label">July 2026 — MTD · Jul 1–2 (2 of 31 Days · SC $22,298 actual · $11,149/day · vs June $11,146/day)</div>
   <div class="kpi-grid">
     <div class="kpi-card gold">
       <span class="kpi-icon">💰</span>
-      <div class="kpi-label">July Revenue — MTD (1 day)</div>
-      <div class="kpi-value">$10,644</div>
-      <div class="kpi-sub">1 of 31 days · Monthly pace ~$330,017 · June FINAL $334,367</div>
-      <div class="kpi-badge down">↓ −4.5% vs June $11,146/day · 30 days remaining</div>
+      <div class="kpi-label">July Revenue — MTD (2 days)</div>
+      <div class="kpi-value">$22,298</div>
+      <div class="kpi-sub">2 of 31 days · Monthly pace ~$345,613 · June FINAL $334,367</div>
+      <div class="kpi-badge up">↑ +0.0% vs June $11,146/day · 29 days remaining</div>
     </div>
     <div class="kpi-card blue">
       <span class="kpi-icon">📅</span>
       <div class="kpi-label">Avg Daily Revenue</div>
-      <div class="kpi-value">$10,644</div>
-      <div class="kpi-sub">SC actual · Jul 1 · Jun 29: $10,199 · Jun 30: $11,209 · Jul 1: $10,644</div>
-      <div class="kpi-badge down">↓ −4.5% vs June $11,146/day · (1 day)</div>
+      <div class="kpi-value">$11,149</div>
+      <div class="kpi-sub">SC actual · Jul 1–2 · Jun 30: $10,660 · Jul 1: $10,355 · Jul 2: $11,943</div>
+      <div class="kpi-badge up">↑ +0.0% vs June $11,146/day · (2 days)</div>
     </div>
     <div class="kpi-card green">
       <span class="kpi-icon">🏆</span>
@@ -471,8 +474,8 @@
     <div class="kpi-card purple">
       <span class="kpi-icon">📊</span>
       <div class="kpi-label">Unit Session % (Listing CVR)</div>
-      <div class="kpi-value">21.0%</div>
-      <div class="kpi-sub">Weighted Jul 1 · SC data · 219u / 1,041 sess</div>
+      <div class="kpi-value">22.6%</div>
+      <div class="kpi-sub">Weighted Jul 1–2 · SC data · 461u / 2,040 sess</div>
       <div class="kpi-badge up">↑ vs June 18.9% weighted CVR</div>
     </div>
   </div>
@@ -484,65 +487,65 @@
   </div>
 
   <!-- RETURNS + PROMOTIONS + AD SPEND ROW -->
-  <div class="section-label" style="margin-top:20px">Returns, Promotions &amp; Ad Spend — July 2026 MTD (Jul 1 · 1 Day)</div>
+  <div class="section-label" style="margin-top:20px">Returns, Promotions &amp; Ad Spend — July 2026 MTD (Jul 1–2 · 2 Days)</div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:4px;">
     <div class="kpi-card" style="border-left:4px solid var(--red,#ef4444);">
       <span class="kpi-icon">↩️</span>
-      <div class="kpi-label">Refunds — July MTD (1 day, est.)</div>
-      <div class="kpi-value" style="font-size:24px;color:var(--red,#ef4444);">−$170</div>
-      <div class="kpi-sub">~1.6% of $10,644 rev (est.) · June final −$5,350 (1.6%)</div>
+      <div class="kpi-label">Refunds — July MTD (2 days, est.)</div>
+      <div class="kpi-value" style="font-size:24px;color:var(--red,#ef4444);">−$357</div>
+      <div class="kpi-sub">~1.6% of $22,298 rev (est.) · June final −$5,350 (1.6%)</div>
       <div class="kpi-badge neutral">Estimated · Actuals pending month-end settlement</div>
     </div>
     <div class="kpi-card purple">
       <span class="kpi-icon">🏷️</span>
       <div class="kpi-label">Promotions — July MTD (est.)</div>
-      <div class="kpi-value" style="font-size:24px;color:#fb923c;">−$713</div>
-      <div class="kpi-sub">~6.7% of $10,644 rev (est.) · June final −$22,403 (6.7%)</div>
+      <div class="kpi-value" style="font-size:24px;color:#fb923c;">−$1,494</div>
+      <div class="kpi-sub">~6.7% of $22,298 rev (est.) · June final −$22,403 (6.7%)</div>
       <div class="kpi-badge neutral">Estimated · Actuals pending month-end settlement</div>
     </div>
     <div class="kpi-card blue">
       <span class="kpi-icon">📢</span>
-      <div class="kpi-label">Ad Spend — July MTD (Jul 1, 1 Day)</div>
-      <div class="kpi-value" style="font-size:24px;">$612</div>
-      <div class="kpi-sub">271 clicks · SP+SB+SD · Jul 1 · Amazon Ads Console</div>
-      <div class="kpi-badge" style="background:rgba(59,130,246,0.15);color:var(--blue);">33.1% ACoS · 3.02x ROAS · $612/day · TACoS 5.8%</div>
+      <div class="kpi-label">Ad Spend — July MTD (Jul 1–2, 2 Days)</div>
+      <div class="kpi-value" style="font-size:24px;">$1,317</div>
+      <div class="kpi-sub">612 clicks · SP+SB+SD · Jul 1–2 · Amazon Ads Console</div>
+      <div class="kpi-badge" style="background:rgba(59,130,246,0.15);color:var(--blue);">29.2% ACoS · 3.42x ROAS · $659/day · TACoS 5.9%</div>
     </div>
     <div class="kpi-card gold">
       <span class="kpi-icon">💵</span>
       <div class="kpi-label">Net Income — July MTD (est.)</div>
-      <div class="kpi-value" style="font-size:24px;color:var(--text);">$9,580</div>
-      <div class="kpi-sub">Settlement $6,919 · True Net $6,307 (Jul 1 · MTD×90% · settle×65% − ad spend $612)</div>
-      <div class="kpi-badge up">↗ Tracking vs June True Net $213,911 · 30 days remaining</div>
+      <div class="kpi-value" style="font-size:24px;color:var(--text);">$20,068</div>
+      <div class="kpi-sub">Settlement $14,493 · True Net $13,176 (Jul 1–2 · MTD×90% · settle×65% − ad spend $1,317)</div>
+      <div class="kpi-badge up">↗ Tracking vs June True Net $213,911 · 29 days remaining</div>
     </div>
   </div>
 
   <!-- AD PERFORMANCE ROW -->
-  <div class="section-label" style="margin-top:20px">Advertising Performance — July 2026 MTD (Jul 1, 1 day) · SP + SB + SD · Amazon Ads Console</div>
+  <div class="section-label" style="margin-top:20px">Advertising Performance — July 2026 MTD (Jul 1–2, 2 days) · SP + SB + SD · Amazon Ads Console</div>
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:12px;">
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;">
       <div style="font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">Impressions</div>
-      <div style="font-size:22px;font-weight:800;color:var(--text);">63,970</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">SP 38.4K · SB 14.3K · SD 11.2K</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text);">137,622</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">SP 80.6K · SB 29.2K · SD 27.8K</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;">
       <div style="font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">Clicks / CPC</div>
-      <div style="font-size:22px;font-weight:800;color:var(--text);">271</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">$2.26 avg CPC · SP 162 · SB 50 · SD 59</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text);">612</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">$2.15 avg CPC · SP 362 · SB 137 · SD 113</div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;">
       <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">Ad Spend / Ad Sales</div>
-      <div style="font-size:22px;font-weight:800;color:var(--accent);">$612</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">$1,850 ad-attributed sales · SP $442/$951 · SB $132/$704 · SD $39/$195</div>
+      <div style="font-size:22px;font-weight:800;color:var(--accent);">$1,317</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">$4,511 ad-attributed sales · SP $899/$2,407 · SB $311/$1,655 · SD $107/$449</div>
     </div>
     <div style="background:var(--surface);border:1px solid rgba(34,197,94,0.3);border-radius:14px;padding:18px 20px;">
       <div style="font-size:10px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">ROAS</div>
-      <div style="font-size:22px;font-weight:800;color:var(--accent);">3.02x</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px;">SP 2.15x · SB 5.35x · SD 5.07x</div>
+      <div style="font-size:22px;font-weight:800;color:var(--accent);">3.42x</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">SP 2.68x · SB 5.32x · SD 4.18x</div>
     </div>
     <div style="background:var(--surface);border:1px solid rgba(59,130,246,0.3);border-radius:14px;padding:18px 20px;">
       <div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">ACoS / TACoS</div>
-      <div style="font-size:22px;font-weight:800;color:var(--accent);">33.1%</div>
-      <div style="font-size:11px;color:var(--accent);margin-top:4px;">SP 46.5% · SB 18.7% · SD 19.7% · TACoS 5.8%</div>
+      <div style="font-size:22px;font-weight:800;color:var(--accent);">29.2%</div>
+      <div style="font-size:11px;color:var(--accent);margin-top:4px;">SP 37.3% · SB 18.8% · SD 23.9% · TACoS 5.9%</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:4px;">
@@ -589,39 +592,39 @@
           <div style="font-size:10px;color:var(--muted);">$171/day · 135 units · 30 days ✓</div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;">
-          <div style="font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:4px;">Jul MTD (1 day)</div>
-          <div style="font-size:20px;font-weight:800;color:var(--blue);">$209</div>
-          <div style="font-size:10px;color:var(--muted);">$209/day · 8 units · 4 SKUs · Jul 1</div>
+          <div style="font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:4px;">Jul MTD (2 days)</div>
+          <div style="font-size:20px;font-weight:800;color:var(--blue);">$490</div>
+          <div style="font-size:10px;color:var(--muted);">$245/day · 19 units · 6 SKUs · Jul 1–2</div>
         </div>
       </div>
       <div style="font-size:12px;color:var(--text);line-height:1.7;margin-bottom:10px;">
-        Top FBM SKUs by Revenue — July MTD (Jul 1):
+        Top FBM SKUs by Revenue — July MTD (Jul 1–2):
       </div>
       <div style="display:flex;flex-direction:column;gap:5px;">
         <div style="display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border-radius:8px;padding:8px 12px;">
           <div style="font-size:12px;color:var(--text);">🥇 ROR 3-Pack (9O-M027-M8EU-FBM)</div>
-          <div style="font-size:12px;color:var(--muted);">3 units</div>
-          <div style="font-size:13px;font-weight:700;color:var(--accent);">$96</div>
+          <div style="font-size:12px;color:var(--muted);">6 units</div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent);">$192</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border-radius:8px;padding:8px 12px;">
           <div style="font-size:12px;color:var(--text);">🥈 Super Joint (HBI-SJS-FBM)</div>
-          <div style="font-size:12px;color:var(--muted);">2 units</div>
-          <div style="font-size:13px;font-weight:700;color:var(--accent);">$58</div>
+          <div style="font-size:12px;color:var(--muted);">4 units</div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent);">$116</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border-radius:8px;padding:8px 12px;">
           <div style="font-size:12px;color:var(--text);">🥉 Natural Cleanse (HBI-NC-FBM)</div>
-          <div style="font-size:12px;color:var(--muted);">2 units</div>
-          <div style="font-size:13px;font-weight:700;color:var(--accent);">$36</div>
+          <div style="font-size:12px;color:var(--muted);">5 units</div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent);">$90</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border-radius:8px;padding:8px 12px;">
-          <div style="font-size:12px;color:var(--text);">4. Sleepzyme (HBI-SLP-FBM)</div>
+          <div style="font-size:12px;color:var(--text);">4. My Daily Collagen (HBI-MDC-FBM)</div>
           <div style="font-size:12px;color:var(--muted);">1 unit</div>
-          <div style="font-size:13px;font-weight:700;color:var(--accent);">$19</div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent);">$48</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(148,163,184,0.06);border-radius:8px;padding:8px 12px;">
-          <div style="font-size:12px;color:var(--muted);">4 FBM SKUs sold on Jul 1 · full catalog 14 SKUs live</div>
-           <div style="font-size:12px;color:var(--muted);">8 units</div>
-           <div style="font-size:13px;font-weight:700;color:var(--muted);">$209</div>
+          <div style="font-size:12px;color:var(--muted);">6 FBM SKUs sold Jul 1–2 · full catalog 14 SKUs live</div>
+           <div style="font-size:12px;color:var(--muted);">19 units</div>
+           <div style="font-size:13px;font-weight:700;color:var(--muted);">$490</div>
         </div>
       </div>
     </div>
@@ -714,20 +717,20 @@
   </div>
 
   <!-- WEEK BY WEEK -->
-  <div class="section-label" style="margin-top:20px">Week-by-Week Breakdown — July 2026 MTD (Jul 1) + Recent History</div>
+  <div class="section-label" style="margin-top:20px">Week-by-Week Breakdown — July 2026 MTD (Jul 1–2) + Recent History</div>
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
     <!-- July Week 1 (current) -->
     <div class="compare-card" style="flex-direction:column;gap:10px;border-color:rgba(240,165,0,0.5);background:rgba(240,165,0,0.05);">
       <div>
-        <div class="compare-period">Week 1 · Jul 1 <span style="color:var(--gold,#f0a500)">(1 of 7 days)</span></div>
-        <div class="compare-sales">$10,644</div>
-        <div class="compare-units">219 units · Avg $10,644/day</div>
+        <div class="compare-period">Week 1 · Jul 1–2 <span style="color:var(--gold,#f0a500)">(2 of 7 days)</span></div>
+        <div class="compare-sales">$22,298</div>
+        <div class="compare-units">461 units · Avg $11,149/day</div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <span style="font-size:12px;color:var(--muted)">Avg CVR</span>
-        <span style="font-size:14px;font-weight:700;color:var(--green)">21.0%</span>
+        <span style="font-size:14px;font-weight:700;color:var(--green)">22.6%</span>
       </div>
-      <div style="font-size:11px;color:var(--red);font-weight:700;">🟡 Week in progress · −4.5% vs June daily avg</div>
+      <div style="font-size:11px;color:var(--green);font-weight:700;">🟡 Week in progress · +0.0% vs June daily avg</div>
     </div>
     <!-- April Summary -->
     <div class="compare-card" style="flex-direction:column;gap:10px;border-color:rgba(34,197,94,0.4);">
@@ -915,27 +918,27 @@
       <div style="font-size:11px;color:var(--green);font-weight:700;margin-top:6px;">↑ +0.9% vs May $11,047/day</div>
     </div>
     <div style="background:rgba(240,165,0,0.06);border:1px solid rgba(240,165,0,0.4);border-radius:14px;padding:18px 20px;">
-      <div style="font-size:11px;color:var(--gold,#f0a500);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">July 2026 · MTD (1 of 31)</div>
-      <div style="font-size:26px;font-weight:800;color:var(--gold,#f0a500);">$10,644<span style="font-size:13px;color:var(--muted);font-weight:400;">/day</span></div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;">$10,644 MTD · 30 days remaining</div>
-      <div style="font-size:11px;color:var(--red);font-weight:700;margin-top:6px;">↓ −4.5% vs June $11,146/day</div>
+      <div style="font-size:11px;color:var(--gold,#f0a500);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">July 2026 · MTD (2 of 31)</div>
+      <div style="font-size:26px;font-weight:800;color:var(--gold,#f0a500);">$11,149<span style="font-size:13px;color:var(--muted);font-weight:400;">/day</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;">$22,298 MTD · 29 days remaining</div>
+      <div style="font-size:11px;color:var(--green);font-weight:700;margin-top:6px;">↑ +0.0% vs June $11,146/day</div>
     </div>
   </div>
 
   <!-- MAY 2026 PROJECTIONS -->
-  <div class="section-label" style="margin-top:20px">July 2026 — MTD Projection · 1 of 31 Days · $10,644 SC actual · pace ~$330K</div>
+  <div class="section-label" style="margin-top:20px">July 2026 — MTD Projection · 2 of 31 Days · $22,298 SC actual · pace ~$346K</div>
 
   <div style="background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.2);border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:12px;color:var(--muted);line-height:1.6;">
-    <strong style="color:var(--blue)">📊 July 2026 — MTD (1 of 31 days).</strong> Jul 1 complete (through 2026-07-01). Revenue per Seller Central Business Report (Detail Page Sales and Traffic by Date). <strong style="color:#fb923c">Early read:</strong> July opened at <strong style="color:var(--red)">$10,644</strong> — <strong style="color:var(--red)">−4.5% vs June’s $11,146/day</strong> baseline. At the current rate July paces to ~<strong>$330K</strong> (30 days remaining). Scenarios below bracket the month.
+    <strong style="color:var(--blue)">📊 July 2026 — MTD (2 of 31 days).</strong> Jul 1–2 complete (through 2026-07-02). Revenue per Seller Central Business Report (Detail Page Sales and Traffic by Date). <strong style="color:#fb923c">Early read:</strong> July is pacing at <strong style="color:var(--green)">$11,149/day</strong> — <strong style="color:var(--green)">+0.0% vs June’s $11,146/day</strong> baseline. At the current rate July paces to ~<strong>$346K</strong> (29 days remaining). Scenarios below bracket the month.
     Net &amp; settlement estimated using standing ratios (90.0% net income · 65.0% settlement, Realistic).
-    Ad spend: $612 actual (Jul 1, SP+SB+SD via Amazon Ads Console) · projected ~$18,974/mo. &nbsp;—&nbsp;
-    <strong style="color:var(--text);">Revenue MTD:</strong> $10,644 &nbsp;·&nbsp;
-    <strong style="color:var(--text);">Daily Avg:</strong> $10,644/day &nbsp;·&nbsp;
-    <strong style="color:var(--text);">Pace:</strong> ~$330K month · −4.5% vs June daily
+    Ad spend: $1,317 actual (Jul 1–2, SP+SB+SD via Amazon Ads Console) · projected ~$20,419/mo. &nbsp;—&nbsp;
+    <strong style="color:var(--text);">Revenue MTD:</strong> $22,298 &nbsp;·&nbsp;
+    <strong style="color:var(--text);">Daily Avg:</strong> $11,149/day &nbsp;·&nbsp;
+    <strong style="color:var(--text);">Pace:</strong> ~$346K month · +0.0% vs June daily
   </div>
 
   <div id="mayProjTabs" style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
-    <button class="tab-btn active" onclick="switchMayProj(event,'base')" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:var(--blue);">📊 July 2026 MTD · $10,644 actual · pace ~$330K</button>
+    <button class="tab-btn active" onclick="switchMayProj(event,'base')" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:var(--blue);">📊 July 2026 MTD · $22,298 actual · pace ~$346K</button>
   </div>
 
   <!-- ── CONSERVATIVE PANEL ── -->
@@ -944,16 +947,16 @@
       <div style="background:var(--surface);border:1px solid rgba(239,68,68,0.35);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#ef4444;border-radius:14px 14px 0 0;"></div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#ef4444;margin-bottom:6px;">🔴 Conservative · Gross Revenue</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">−5% rate · $10,112/day · 30 days remaining</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">−5% rate · $10,591/day · 29 days remaining</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">Projected Total</div><div style="font-size:28px;font-weight:800;color:#ef4444;">$314K</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $334K</div><div style="font-size:16px;font-weight:800;color:var(--red);">−6.1%</div><div style="font-size:11px;color:var(--red);">−$20K</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">Projected Total</div><div style="font-size:28px;font-weight:800;color:#ef4444;">$329K</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $334K</div><div style="font-size:16px;font-weight:800;color:var(--red);">−1.5%</div><div style="font-size:11px;color:var(--red);">−$5K</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><div style="font-size:10px;color:var(--muted);">Projected</div><div style="font-size:14px;font-weight:700;">$314K</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Remaining</div><div style="font-size:14px;font-weight:700;">30 left</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Daily avg</div><div style="font-size:14px;font-weight:700;color:#ef4444;">$10,112/day</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Units</div><div style="font-size:14px;font-weight:700;">~6,789</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Projected</div><div style="font-size:14px;font-weight:700;">$329K</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Remaining</div><div style="font-size:14px;font-weight:700;">29 left</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Daily avg</div><div style="font-size:14px;font-weight:700;color:#ef4444;">$10,591/day</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Units</div><div style="font-size:14px;font-weight:700;">~6,811</div></div>
         </div>
       </div>
       <div style="background:var(--surface);border:1px solid rgba(239,68,68,0.25);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
@@ -961,8 +964,8 @@
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#f97316;margin-bottom:6px;">💵 Projected Net Income</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Gross × 90.4% (April ratio · after refunds &amp; promos)</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">Net Income</div><div style="font-size:28px;font-weight:800;color:#f97316;">~$303K</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">Settlement (68%)</div><div style="font-size:16px;font-weight:800;color:var(--text);">~$228K</div><div style="font-size:11px;color:var(--muted);">before ads</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">Net Income</div><div style="font-size:28px;font-weight:800;color:#f97316;">~$298K</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">Settlement (68%)</div><div style="font-size:16px;font-weight:800;color:var(--text);">~$224K</div><div style="font-size:11px;color:var(--muted);">before ads</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div><div style="font-size:10px;color:var(--muted);">Amazon Fees (est.)</div><div style="font-size:14px;font-weight:700;color:var(--red);">~−$65K</div></div>
@@ -976,14 +979,14 @@
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#ef4444;margin-bottom:6px;">🏦 True Net (After All Fees + Ads)</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Settlement − estimated ad spend · TACoS ~6.0%</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">True Net</div><div style="font-size:28px;font-weight:800;color:#ef4444;">~$208K</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs May $202K</div><div style="font-size:16px;font-weight:800;color:var(--green);">+$6K</div><div style="font-size:11px;color:var(--green);">+3.2% ▲</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">True Net</div><div style="font-size:28px;font-weight:800;color:#ef4444;">~$204K</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $214K</div><div style="font-size:16px;font-weight:800;color:var(--red);">−$10K</div><div style="font-size:11px;color:var(--red);">−4.8% ▼</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><div style="font-size:10px;color:var(--muted);">Settlement</div><div style="font-size:14px;font-weight:700;">~$228K</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Ad Spend (est.)</div><div style="font-size:14px;font-weight:700;color:var(--blue);">~−$21K</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">TACoS (est.)</div><div style="font-size:14px;font-weight:700;">~6.2%</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">vs May True Net</div><div style="font-size:14px;font-weight:700;color:var(--green);">+3.2% ▲</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Settlement</div><div style="font-size:14px;font-weight:700;">~$224K</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Ad Spend (est.)</div><div style="font-size:14px;font-weight:700;color:var(--blue);">~−$20K</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">TACoS (est.)</div><div style="font-size:14px;font-weight:700;">~5.9%</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">vs June True Net</div><div style="font-size:14px;font-weight:700;color:var(--red);">−4.8% ▼</div></div>
         </div>
       </div>
     </div>
@@ -995,16 +998,16 @@
       <div style="background:var(--surface);border:1px solid rgba(240,165,0,0.4);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f0a500;border-radius:14px 14px 0 0;"></div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--blue);margin-bottom:6px;">📊 Realistic · Gross Revenue</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Current rate $10,644/day · 30 days remaining</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Current rate $11,149/day · 29 days remaining</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">Projected Total</div><div style="font-size:28px;font-weight:800;color:var(--blue);">$330,017</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $334K</div><div style="font-size:16px;font-weight:800;color:var(--red);">−1.3%</div><div style="font-size:11px;color:var(--red);">−$4K</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">Projected Total</div><div style="font-size:28px;font-weight:800;color:var(--blue);">$345,613</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $334K</div><div style="font-size:16px;font-weight:800;color:var(--green);">+3.4%</div><div style="font-size:11px;color:var(--green);">+$11K</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><div style="font-size:10px;color:var(--muted);">FINAL Actual</div><div style="font-size:14px;font-weight:700;">$334,367</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Days</div><div style="font-size:14px;font-weight:700;">1 / 31</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Daily Average</div><div style="font-size:14px;font-weight:700;color:var(--blue);">$10,644/day</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Total Units</div><div style="font-size:14px;font-weight:700;">6,868</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">June FINAL</div><div style="font-size:14px;font-weight:700;">$334,367</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Days</div><div style="font-size:14px;font-weight:700;">2 / 31</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Daily Average</div><div style="font-size:14px;font-weight:700;color:var(--blue);">$11,149/day</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Total Units</div><div style="font-size:14px;font-weight:700;">~7,146</div></div>
         </div>
       </div>
       <div style="background:var(--surface);border:1px solid rgba(240,165,0,0.3);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
@@ -1012,8 +1015,8 @@
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--green);margin-bottom:6px;">💵 Jul Projected Net Income (est.)</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Est. from MTD × standing ratios · Jul 1</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">Net Income</div><div style="font-size:28px;font-weight:800;color:var(--green);">$297,015</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">Settlement</div><div style="font-size:16px;font-weight:800;color:var(--text);">$214,511</div><div style="font-size:11px;color:var(--muted);">×65% MTD</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">Net Income</div><div style="font-size:28px;font-weight:800;color:var(--green);">$311,052</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">Settlement</div><div style="font-size:16px;font-weight:800;color:var(--text);">$224,648</div><div style="font-size:11px;color:var(--muted);">×65% proj</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div><div style="font-size:10px;color:var(--muted);">May Fees (ref)</div><div style="font-size:14px;font-weight:700;color:var(--red);">−$78,642</div></div>
@@ -1025,16 +1028,16 @@
       <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.4);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);border-radius:14px 14px 0 0;"></div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--green);margin-bottom:6px;">🏦 Jul Projected True Net (After All Fees + Ads)</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Settlement $214,511 − ad spend proj $18,974 · est.</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Settlement $224,648 − ad spend proj $20,419 · est.</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">True Net</div><div style="font-size:28px;font-weight:800;color:var(--green);">$195,537</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $214K</div><div style="font-size:16px;font-weight:800;color:var(--red);">−$18K</div><div style="font-size:11px;color:var(--red);">−8.6% ▼</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">True Net</div><div style="font-size:28px;font-weight:800;color:var(--green);">$204,229</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $214K</div><div style="font-size:16px;font-weight:800;color:var(--red);">−$10K</div><div style="font-size:11px;color:var(--red);">−4.5% ▼</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><div style="font-size:10px;color:var(--muted);">Settlement</div><div style="font-size:14px;font-weight:700;">$234,165</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Ad Spend</div><div style="font-size:14px;font-weight:700;color:var(--blue);">−$20,254</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">TACoS</div><div style="font-size:14px;font-weight:700;">6.2%</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">vs May True Net</div><div style="font-size:14px;font-weight:700;color:var(--green);">+6.0% ▲</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Settlement</div><div style="font-size:14px;font-weight:700;">$224,648</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Ad Spend</div><div style="font-size:14px;font-weight:700;color:var(--blue);">−$20,419</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">TACoS</div><div style="font-size:14px;font-weight:700;">5.9%</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">vs June True Net</div><div style="font-size:14px;font-weight:700;color:var(--red);">−4.5% ▼</div></div>
         </div>
       </div>
     </div>
@@ -1046,16 +1049,16 @@
       <div style="background:var(--surface);border:1px solid rgba(34,197,94,0.4);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);border-radius:14px 14px 0 0;"></div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--green);margin-bottom:6px;">🟢 Optimistic · Gross Revenue</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">$13,000/day rate · 30 days remaining</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">$13,000/day rate · 29 days remaining</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">Projected Total</div><div style="font-size:28px;font-weight:800;color:var(--green);">$401K</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $334K</div><div style="font-size:16px;font-weight:800;color:var(--green);">+20.0%</div><div style="font-size:11px;color:var(--green);">+$67K</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">Projected Total</div><div style="font-size:28px;font-weight:800;color:var(--green);">$399K</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $334K</div><div style="font-size:16px;font-weight:800;color:var(--green);">+19.4%</div><div style="font-size:11px;color:var(--green);">+$65K</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><div style="font-size:10px;color:var(--muted);">Projected</div><div style="font-size:14px;font-weight:700;">$401K</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Remaining</div><div style="font-size:14px;font-weight:700;">30 left</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Projected</div><div style="font-size:14px;font-weight:700;">$399K</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Remaining</div><div style="font-size:14px;font-weight:700;">29 left</div></div>
           <div><div style="font-size:10px;color:var(--muted);">Daily avg</div><div style="font-size:14px;font-weight:700;color:var(--green);">$13,000/day</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Units</div><div style="font-size:14px;font-weight:700;">6,868</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Units</div><div style="font-size:14px;font-weight:700;">~8,233</div></div>
         </div>
       </div>
       <div style="background:var(--surface);border:1px solid rgba(34,197,94,0.3);border-radius:14px;padding:22px 24px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;">
@@ -1063,8 +1066,8 @@
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--green);margin-bottom:6px;">💵 Projected Net Income</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Gross × 90.4% (April ratio · after refunds &amp; promos)</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">Net Income</div><div style="font-size:28px;font-weight:800;color:var(--green);">~$305K</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">Settlement (68%)</div><div style="font-size:16px;font-weight:800;color:var(--text);">~$230K</div><div style="font-size:11px;color:var(--muted);">before ads</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">Net Income</div><div style="font-size:28px;font-weight:800;color:var(--green);">~$361K</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">Settlement (68%)</div><div style="font-size:16px;font-weight:800;color:var(--text);">~$272K</div><div style="font-size:11px;color:var(--muted);">before ads</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div><div style="font-size:10px;color:var(--muted);">Amazon Fees (est.)</div><div style="font-size:14px;font-weight:700;color:var(--red);">~−$66K</div></div>
@@ -1078,14 +1081,14 @@
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--green);margin-bottom:6px;">🏦 True Net (After All Fees + Ads)</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Settlement − estimated ad spend · TACoS ~5.5%</div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px;">
-          <div><div style="font-size:11px;color:var(--muted);">True Net</div><div style="font-size:28px;font-weight:800;color:var(--green);">~$209K</div></div>
-          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs May $202K</div><div style="font-size:16px;font-weight:800;color:var(--green);">+$10K</div><div style="font-size:11px;color:var(--green);">+4.7% ▲</div></div>
+          <div><div style="font-size:11px;color:var(--muted);">True Net</div><div style="font-size:28px;font-weight:800;color:var(--green);">~$251K</div></div>
+          <div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">vs June $214K</div><div style="font-size:16px;font-weight:800;color:var(--green);">+$37K</div><div style="font-size:11px;color:var(--green);">+17.4% ▲</div></div>
         </div>
         <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><div style="font-size:10px;color:var(--muted);">Settlement</div><div style="font-size:14px;font-weight:700;">~$230K</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">Ad Spend (est.)</div><div style="font-size:14px;font-weight:700;color:var(--blue);">~−$21K</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">TACoS (est.)</div><div style="font-size:14px;font-weight:700;">~5.5%</div></div>
-          <div><div style="font-size:10px;color:var(--muted);">vs May True Net</div><div style="font-size:14px;font-weight:700;color:var(--green);">+4.7% ▲</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Settlement</div><div style="font-size:14px;font-weight:700;">~$272K</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">Ad Spend (est.)</div><div style="font-size:14px;font-weight:700;color:var(--blue);">~−$20K</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">TACoS (est.)</div><div style="font-size:14px;font-weight:700;">~5.9%</div></div>
+          <div><div style="font-size:10px;color:var(--muted);">vs June True Net</div><div style="font-size:14px;font-weight:700;color:var(--green);">+17.4% ▲</div></div>
         </div>
       </div>
     </div>
@@ -1178,7 +1181,7 @@
   </div>
 
   <!-- MAIN CHARTS ROW -->
-  <div class="section-label">Daily Trends — Jan 1 to Jul 1, 2026</div>
+  <div class="section-label">Daily Trends — Jan 1 to Jul 2, 2026</div>
   <div class="chart-row">
     <div class="chart-card">
       <div class="chart-header">
@@ -1289,12 +1292,12 @@
       <div style="font-size:12px;color:var(--fg);line-height:1.6;">Live stock levels and days-of-supply are not available via the current Seller Central data feed. Connect the Reorder Inventory Report for current on-hand units, days-of-supply, and reorder timing. (Prior May snapshot flagged the ROR+HNS, Sleepzyme, and HNS+SJS bundles near reorder threshold.)</div>
     </div>
   </div>
-  <div class="section-label">Products — Jan 1–Jul 1, 2026 (182 days)</div>
+  <div class="section-label">Products — Jan 1–Jul 2, 2026 (183 days)</div>
   <div class="table-card" style="margin-bottom:16px;">
     <div class="chart-header" style="margin-bottom:8px;">
       <div>
         <div class="chart-title">Product Performance by ASIN</div>
-        <div class="chart-subtitle">19 active ASINs · Period: Jan 1 – Jul 1, 2026 · Revenue = Ordered Product Sales</div>
+        <div class="chart-subtitle">19 active ASINs · Period: Jan 1 – Jul 2, 2026 · Revenue = Ordered Product Sales</div>
       </div>
     </div>
 
@@ -1317,7 +1320,7 @@
       <table>
         <thead>
           <tr>
-            <th>#</th><th>Product</th><th>Revenue Jan 1–Jul 1</th>
+            <th>#</th><th>Product</th><th>Revenue Jan 1–Jul 2</th>
             <th>Units</th><th>Sessions</th><th>Unit Session%</th>
             <th>Buy Box</th>
           </tr>
@@ -1325,138 +1328,138 @@
         <tbody><tr>
   <td><span class="rank-badge rank-1">1</span></td>
   <td><div class="product-name">Heal-N-Soothe (1 Pack)</div><div class="product-asin">B00MH4H3QQ · HBI-HNS</div></td>
-  <td style="color:var(--accent);font-weight:700">$511,125</td>
-  <td>10,249</td><td>44,736</td>
-  <td><span class="cvr-mid">22.9%</span></td>
+  <td style="color:var(--accent);font-weight:700">$515,121</td>
+  <td>10,329</td><td>44,975</td>
+  <td><span class="cvr-mid">23.0%</span></td>
   <td><span style="color:var(--green);font-weight:700">97.5%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-2">2</span></td>
   <td><div class="product-name">Heal-N-Soothe (3 Pack)</div><div class="product-asin">B0BM1KQ2QT · HBI-HNS-3BLT</div></td>
-  <td style="color:var(--accent);font-weight:700">$334,587</td>
-  <td>2,794</td><td>5,815</td>
-  <td><span class="cvr-high">48.1%</span></td>
+  <td style="color:var(--accent);font-weight:700">$336,746</td>
+  <td>2,812</td><td>5,869</td>
+  <td><span class="cvr-high">47.9%</span></td>
   <td><span style="color:var(--green);font-weight:700">98.5%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-3">3</span></td>
   <td><div class="product-name">Heal-N-Soothe (2 Pack)</div><div class="product-asin">B07VVRVLPD · HBI-HNS-2BLT</div></td>
-  <td style="color:var(--accent);font-weight:700">$278,430</td>
-  <td>3,101</td><td>7,793</td>
+  <td style="color:var(--accent);font-weight:700">$280,949</td>
+  <td>3,129</td><td>7,869</td>
   <td><span class="cvr-high">39.8%</span></td>
   <td><span style="color:var(--green);font-weight:700">97.6%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">4</span></td>
   <td><div class="product-name">Heal-N-Soothe 60ct</div><div class="product-asin">B0FNPNHZGJ · HBI-HNS-60</div></td>
-  <td style="color:var(--accent);font-weight:700">$237,590</td>
-  <td>6,272</td><td>85,800</td>
+  <td style="color:var(--accent);font-weight:700">$239,420</td>
+  <td>6,318</td><td>86,302</td>
   <td><span class="cvr-low">7.3%</span></td>
   <td><span style="color:var(--green);font-weight:700">95.7%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">5</span></td>
-  <td><div class="product-name">HNS & SJS Bundle</div><div class="product-asin">B08RJZLLCW · HBI HNS SJS</div></td>
-  <td style="color:var(--accent);font-weight:700">$174,668</td>
-  <td>2,816</td><td>9,791</td>
-  <td><span class="cvr-high">28.8%</span></td>
+  <td><div class="product-name">HNS &amp; SJS Bundle</div><div class="product-asin">B08RJZLLCW · HBI HNS SJS</div></td>
+  <td style="color:var(--accent);font-weight:700">$176,119</td>
+  <td>2,840</td><td>9,881</td>
+  <td><span class="cvr-mid">28.7%</span></td>
   <td><span style="color:var(--green);font-weight:700">98.5%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">6</span></td>
   <td><div class="product-name">Super Joint Support</div><div class="product-asin">B08899HMJJ · HBI-SJS</div></td>
-  <td style="color:var(--accent);font-weight:700">$155,143</td>
-  <td>3,335</td><td>17,111</td>
-  <td><span class="cvr-mid">19.5%</span></td>
+  <td style="color:var(--accent);font-weight:700">$156,819</td>
+  <td>3,393</td><td>17,302</td>
+  <td><span class="cvr-mid">19.6%</span></td>
   <td><span style="color:var(--accent);font-weight:700">94.1%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">7</span></td>
   <td><div class="product-name">Heal-N-Soothe (6 Pack)</div><div class="product-asin">B0BM21M6KV · HBI-HNS-6BLT</div></td>
-  <td style="color:var(--accent);font-weight:700">$110,703</td>
-  <td>528</td><td>1,577</td>
-  <td><span class="cvr-high">33.5%</span></td>
-  <td><span style="color:var(--green);font-weight:700">97.8%</span></td>
+  <td style="color:var(--accent);font-weight:700">$111,332</td>
+  <td>531</td><td>1,595</td>
+  <td><span class="cvr-high">33.3%</span></td>
+  <td><span style="color:var(--green);font-weight:700">97.7%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">8</span></td>
   <td><div class="product-name">My Daily Collagen</div><div class="product-asin">B0BM21LDPG · HBI-MDC</div></td>
-  <td style="color:var(--accent);font-weight:700">$87,617</td>
-  <td>1,776</td><td>6,468</td>
-  <td><span class="cvr-high">27.5%</span></td>
-  <td><span style="color:var(--red);font-weight:700">89.4%</span></td>
+  <td style="color:var(--accent);font-weight:700">$88,913</td>
+  <td>1,802</td><td>6,506</td>
+  <td><span class="cvr-mid">27.7%</span></td>
+  <td><span style="color:var(--red);font-weight:700">89.5%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">9</span></td>
   <td><div class="product-name">Rub On Relief (3 Pack)</div><div class="product-asin">B0DKTTRD27 · 9O-M027-M8EU</div></td>
-  <td style="color:var(--accent);font-weight:700">$59,121</td>
-  <td>2,010</td><td>6,670</td>
-  <td><span class="cvr-high">30.1%</span></td>
+  <td style="color:var(--accent);font-weight:700">$59,708</td>
+  <td>2,027</td><td>6,715</td>
+  <td><span class="cvr-high">30.2%</span></td>
   <td><span style="color:var(--green);font-weight:700">96.0%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">10</span></td>
   <td><div class="product-name">Rub On Relief (1 Pack)</div><div class="product-asin">B0D8BTQZC6 · CN-B9DK-E597</div></td>
-  <td style="color:var(--accent);font-weight:700">$51,691</td>
-  <td>4,114</td><td>33,215</td>
-  <td><span class="cvr-low">12.4%</span></td>
-  <td><span style="color:var(--accent);font-weight:700">92.3%</span></td>
+  <td style="color:var(--accent);font-weight:700">$52,432</td>
+  <td>4,167</td><td>33,892</td>
+  <td><span class="cvr-low">12.3%</span></td>
+  <td><span style="color:var(--accent);font-weight:700">92.1%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">11</span></td>
   <td><div class="product-name">Natural Colon Cleanse</div><div class="product-asin">B09G4C1WKW · HBI-NC</div></td>
-  <td style="color:var(--accent);font-weight:700">$17,894</td>
-  <td>906</td><td>1,091</td>
+  <td style="color:var(--accent);font-weight:700">$18,063</td>
+  <td>915</td><td>1,102</td>
   <td><span class="cvr-high">83.0%</span></td>
-  <td><span style="color:var(--green);font-weight:700">97.7%</span></td>
+  <td><span style="color:var(--green);font-weight:700">97.8%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">12</span></td>
   <td><div class="product-name">Sleepzyme</div><div class="product-asin">B09GWZKG8T · HBI-SLP</div></td>
-  <td style="color:var(--accent);font-weight:700">$14,227</td>
-  <td>717</td><td>1,252</td>
-  <td><span class="cvr-high">57.3%</span></td>
+  <td style="color:var(--accent);font-weight:700">$14,266</td>
+  <td>719</td><td>1,263</td>
+  <td><span class="cvr-high">56.9%</span></td>
   <td><span style="color:var(--green);font-weight:700">96.4%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">13</span></td>
-  <td><div class="product-name">ROR & HNS Bundle</div><div class="product-asin">B09Q6BN57S · HBI-ROR-HNS Actual Bundle</div></td>
+  <td><div class="product-name">ROR &amp; HNS Bundle</div><div class="product-asin">B09Q6BN57S · HBI-ROR-HNS Actual Bundle</div></td>
   <td style="color:var(--accent);font-weight:700">$13,259</td>
-  <td>252</td><td>2,993</td>
-  <td><span class="cvr-low">8.4%</span></td>
-  <td><span style="color:var(--green);font-weight:700">98.3%</span></td>
+  <td>252</td><td>3,021</td>
+  <td><span class="cvr-low">8.3%</span></td>
+  <td><span style="color:var(--green);font-weight:700">98.2%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">14</span></td>
-  <td><div class="product-name">HNS & NC Bundle</div><div class="product-asin">B09LGSJNPG · HBI-HNS-NC</div></td>
-  <td style="color:var(--accent);font-weight:700">$7,528</td>
-  <td>124</td><td>1,656</td>
+  <td><div class="product-name">HNS &amp; NC Bundle</div><div class="product-asin">B09LGSJNPG · HBI-HNS-NC</div></td>
+  <td style="color:var(--accent);font-weight:700">$7,588</td>
+  <td>125</td><td>1,669</td>
   <td><span class="cvr-low">7.5%</span></td>
   <td><span style="color:var(--green);font-weight:700">97.6%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">15</span></td>
-  <td><div class="product-name">HNS & MDC Bundle</div><div class="product-asin">B0BLZV7574 · HBI-HNS-MDC</div></td>
-  <td style="color:var(--accent);font-weight:700">$6,821</td>
-  <td>96</td><td>1,023</td>
+  <td><div class="product-name">HNS &amp; MDC Bundle</div><div class="product-asin">B0BLZV7574 · HBI-HNS-MDC</div></td>
+  <td style="color:var(--accent);font-weight:700">$6,891</td>
+  <td>97</td><td>1,034</td>
   <td><span class="cvr-low">9.4%</span></td>
   <td><span style="color:var(--accent);font-weight:700">94.3%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">16</span></td>
   <td><div class="product-name">Rub On Relief (2 Pack)</div><div class="product-asin">B0GMRTY442 · HBI-ROR-2PACK</div></td>
-  <td style="color:var(--accent);font-weight:700">$5,206</td>
-  <td>238</td><td>1,008</td>
+  <td style="color:var(--accent);font-weight:700">$5,331</td>
+  <td>243</td><td>1,028</td>
   <td><span class="cvr-mid">23.6%</span></td>
-  <td><span style="color:var(--green);font-weight:700">96.1%</span></td>
+  <td><span style="color:var(--green);font-weight:700">96.0%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">17</span></td>
-  <td><div class="product-name">Sleepzyme & HNS Bundle</div><div class="product-asin">B09PK5ZGNX · HBI-HNS SLP</div></td>
+  <td><div class="product-name">Sleepzyme &amp; HNS Bundle</div><div class="product-asin">B09PK5ZGNX · HBI-HNS SLP</div></td>
   <td style="color:var(--accent);font-weight:700">$2,796</td>
-  <td>46</td><td>609</td>
-  <td><span class="cvr-low cvr-pill">7.7%</span></td>
-  <td><span style="color:var(--green);font-weight:700">95.5%</span></td>
+  <td>46</td><td>613</td>
+  <td><span class="cvr-low cvr-pill">7.5%</span></td>
+  <td><span style="color:var(--green);font-weight:700">95.6%</span></td>
 </tr>
 <tr>
   <td><span class="rank-badge rank-other">18</span></td>
@@ -1469,13 +1472,13 @@
 <tr>
   <td><span class="rank-badge rank-other">19</span></td>
   <td><div class="product-name">Eye Vitamins</div><div class="product-asin">B0GSXC7HS3 · TQ-3VZ9-0HGG</div></td>
-  <td style="color:var(--accent);font-weight:700">$1,093</td>
-  <td>41</td><td>236</td>
-  <td><span class="cvr-mid">17.7%</span></td>
-  <td><span style="color:var(--red);font-weight:700">91.4%</span></td>
+  <td style="color:var(--accent);font-weight:700">$1,201</td>
+  <td>45</td><td>251</td>
+  <td><span class="cvr-mid">17.9%</span></td>
+  <td><span style="color:var(--accent);font-weight:700">92.4%</span></td>
 </tr></tbody>
       </table>
-      <div style="font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">Revenue &amp; performance data sourced via <strong style="color:var(--text)">Amazon Seller Central</strong>. Period: Jan 1 – Jul 1, 2026. FBA+FBM consolidated by child ASIN. Unit Session% = units ordered ÷ total sessions. Buy Box = Featured Offer win rate. Inventory data not yet available via API — connect Reorder Inventory Report for stock levels.</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">Revenue &amp; performance data sourced via <strong style="color:var(--text)">Amazon Seller Central</strong>. Period: Jan 1 – Jul 2, 2026. FBA+FBM consolidated by child ASIN. Unit Session% = units ordered ÷ total sessions. Buy Box = Featured Offer win rate. Inventory data not yet available via API — connect Reorder Inventory Report for stock levels.</div>
     </div>
 
     <!-- 1-PACK DETAIL -->
@@ -2423,22 +2426,22 @@
   </div>
 
   <!-- ── HEADLINE KPIs ── -->
-  <div class="section-label">Q1 + April + May + June FINAL + Jul 1 MTD — Ad Performance at a Glance</div>
+  <div class="section-label">Q1 + April + May + June FINAL + Jul 1–2 MTD — Ad Performance at a Glance</div>
   <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr);">
 
     <div class="kpi-card" style="border-top:3px solid #fb923c;">
       <span class="kpi-icon">💸</span>
-      <div class="kpi-label">YTD Ad Spend (through Jul 1)</div>
-      <div class="kpi-value">$182,582</div>
-      <div class="kpi-sub">Q1 $115,058 · Apr $23,466 · May $22,716 · Jun $20,730 · Jul $612</div>
-      <div class="kpi-badge" style="background:rgba(59,130,246,0.15);color:var(--blue);">Jun FINAL $691/day · Jul MTD $612/day</div>
+      <div class="kpi-label">YTD Ad Spend (through Jul 2)</div>
+      <div class="kpi-value">$183,287</div>
+      <div class="kpi-sub">Q1 $115,058 · Apr $23,466 · May $22,716 · Jun $20,730 · Jul $1,317</div>
+      <div class="kpi-badge" style="background:rgba(59,130,246,0.15);color:var(--blue);">Jun FINAL $691/day · Jul MTD $659/day</div>
     </div>
 
     <div class="kpi-card" style="border-top:3px solid var(--accent);">
       <span class="kpi-icon">🛒</span>
       <div class="kpi-label">YTD Ad-Attributed Sales</div>
-      <div class="kpi-value">$644,124</div>
-      <div class="kpi-sub">Jun FINAL $89,124 · Jul MTD $1,850 · of ~$2,076K total</div>
+      <div class="kpi-value">$646,785</div>
+      <div class="kpi-sub">Jun FINAL $89,124 · Jul MTD $4,511 · of ~$2,086K total</div>
       <div class="kpi-badge" style="background:rgba(96,165,250,0.15);color:var(--accent);">31.0% ad-driven · 69.0% organic</div>
     </div>
 
@@ -2446,16 +2449,16 @@
       <span class="kpi-icon">📉</span>
       <div class="kpi-label">May ACoS — FINAL (31d)</div>
       <div class="kpi-value" style="color:var(--green);">22.5%</div>
-      <div class="kpi-sub">Jun FINAL 23.3% · TACoS 6.6% · Jul MTD 33.1%</div>
-      <div class="kpi-badge up">Jul MTD 33.1% ACoS · TACoS 5.8% (1 day)</div>
+      <div class="kpi-sub">Jun FINAL 23.3% · TACoS 6.6% · Jul MTD 29.2%</div>
+      <div class="kpi-badge up">Jul MTD 29.2% ACoS · TACoS 5.9% (2 days)</div>
     </div>
 
     <div class="kpi-card" style="border-top:3px solid var(--green);">
       <span class="kpi-icon">⚡</span>
       <div class="kpi-label">May ROAS — FINAL</div>
       <div class="kpi-value" style="color:var(--green);">4.45x</div>
-      <div class="kpi-sub">Jun FINAL 4.30x · Jul MTD 3.02x · CPC $2.26</div>
-      <div class="kpi-badge up">Jul MTD 3.02x ROAS (1 day)</div>
+      <div class="kpi-sub">Jun FINAL 4.30x · Jul MTD 3.42x · CPC $2.15</div>
+      <div class="kpi-badge up">Jul MTD 3.42x ROAS (2 days)</div>
     </div>
 
   </div>
@@ -3027,13 +3030,13 @@
 
 
 <footer>
-  Data sourced via Amazon Seller Central · healthybackinstitute · US Marketplace · Updated Jul 3, 2026 · Revenue through 2026-07-01 · Jan–Jun confirmed finals · Jul MTD
+  Data sourced via Amazon Seller Central · healthybackinstitute · US Marketplace · Updated Jul 4, 2026 · Revenue through 2026-07-02 · Jan–Jun confirmed finals · Jul MTD
 </footer>
 
 <script>
 // ── DATA ──────────────────────────────────────
 // ── DATA SOURCE: Amazon Seller Central (ATVPDKIKX0DER) ──
-// sales_and_traffic_by_date · Pulled 2026-07-03 · through 2026-07-01
+// sales_and_traffic_by_date · Pulled 2026-07-04 · through 2026-07-02
 const daily = [
   {d:'2/25',s:10196.13,u:215,sess:1477,cvr:14.56},
   {d:'2/26',s:12622.3,u:239,sess:1331,cvr:17.96},
@@ -3161,7 +3164,8 @@ const daily = [
   {d:'6/28',s:12044,u:223,sess:979,cvr:22.8},
   {d:'6/29',s:10419,u:197,sess:1018,cvr:19.4},
   {d:'6/30',s:11369,u:210,sess:999,cvr:21.0},
-  {d:'7/1',s:10644.41,u:219,sess:1041,cvr:21.0}
+  {d:'7/1',s:10354.62,u:214,sess:1041,cvr:20.56},
+  {d:'7/2',s:11942.99,u:247,sess:999,cvr:24.72}
 ];
 
 const labels = daily.map(d => d.d);
@@ -3335,7 +3339,7 @@ new Chart(mc, {
     labels:['Nov \'25','Dec \'25','Jan \'26','Feb \'26','Mar \'26','Apr \'26','May \'26','Jun \'26','Jul \'26 MTD'],
     datasets:[{
       label:'Revenue ($K)',
-      data:[360, 410, 374.8, 326.3, 361.5, 338.7, 342.5, 334.4, 10.6],
+      data:[360, 410, 374.8, 326.3, 361.5, 338.7, 342.5, 334.4, 22.3],
       backgroundColor:['rgba(240,165,0,0.45)','rgba(240,165,0,0.45)','rgba(240,165,0,0.45)','rgba(240,165,0,0.45)','rgba(240,165,0,0.45)','rgba(240,165,0,0.65)','rgba(34,197,94,0.65)','rgba(59,130,246,0.65)'],
       borderColor:['#f0a500','#f0a500','#f0a500','#f0a500','#f0a500','#f0a500','#22c55e','#3b82f6'],
       borderWidth:1,
@@ -3346,14 +3350,4 @@ new Chart(mc, {
     ...defOpts,
     scales:{
       x:{ grid:{ display:false, drawBorder:false }, ticks:{ color:'#94a3b8', font:{size:10} }},
-      y:{ grid:{ color:'rgba(46,51,72,0.5)', drawBorder:false }, ticks:{ color:'#94a3b8', font:{size:10}, callback: v => '$'+v+'K' }}
-    }
-  }
-});
-
-// ── INITIAL PAGE STATE ──
-switchPage('sales');
-</script>
-</body>
-</html>
- 
+      y:{ grid:{ color:'rgba(46,51,72,0.5)', drawBorder:false }, ti
