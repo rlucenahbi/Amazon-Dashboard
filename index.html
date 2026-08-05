@@ -3165,6 +3165,17 @@ function switchMayProj(e, which){
   document.querySelectorAll('#mayProjTabs .tab-btn').forEach(function(b){b.classList.remove('active');});
   if(e&&e.currentTarget) e.currentTarget.classList.add('active');
 }
+function switchPage(which){
+  ['sales','payments','ppc'].forEach(function(p){
+    var pg=document.getElementById('page-'+p);
+    if(pg) pg.style.display=(p===which)?'block':'none';
+    var bt=document.getElementById('pgbtn-'+p);
+    if(bt){
+      if(p===which){ bt.style.borderBottom='3px solid var(--accent)'; bt.style.color='var(--accent)'; }
+      else { bt.style.borderBottom='3px solid transparent'; bt.style.color='var(--muted)'; }
+    }
+  });
+}
 const labels = daily.map(d => d.d);
 const defOpts = {
   responsive: true,
