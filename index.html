@@ -239,6 +239,9 @@
     box-shadow: var(--card-shadow);
   }
   table { width: 100%; border-collapse: collapse; }
+    /* wide campaign-type table: scroll rather than clip (added 2026-09-15) */
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-scroll > table { min-width: 1180px; }
   thead th {
     text-align: left;
     font-size: 11px;
@@ -2780,8 +2783,8 @@
   <div style="background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.35);border-radius:10px;padding:16px 20px;margin-bottom:16px;display:flex;gap:14px;align-items:flex-start;">
     <div style="font-size:22px;">⚠️</div>
     <div>
-      <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:4px;">Brand Concentration ~60% Through June — ⚠️ NOT REFRESHED SINCE JUNE (Jul/Aug/Sep campaign-type data not available)</div>
-      <div style="font-size:12px;color:var(--fg);line-height:1.6;">Brand concentration (Brand KW + ASIN Defense) ran <strong style="color:#fbbf24;">62.2%</strong> (Apr) → <strong style="color:#fbbf24;">58.7%</strong> (May FINAL) → <strong style="color:#fbbf24;">60.2%</strong> (Jun FINAL) — holding steady around 60%. Total ad spend fell from $23,466 (Apr) to <strong style="color:var(--fg);">$22,653 (May)</strong> and closed at <strong style="color:var(--fg);">$20,730 for June</strong>. Overall ACoS drifted up from April's record 20.4% to <strong style="color:#fbbf24;">22.3% (May)</strong> and <strong style="color:#fbbf24;">23.3% (Jun FINAL)</strong> — mostly higher Auto/Competitor/SD ACoS. Brand Keywords remain the efficient core (19.7% May → 21.4% Jun), while Generic/Ranking/Category stay near-paused (&lt;$1K/mo). Watch Auto (32% May → 25% Jun) and SD (20% → 29%) as attribution completes.</div>
+      <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:4px;">Brand Concentration Fell From ~60% to 42–46% — Refreshed Through Sep 13 from the Campaign Report Export</div>
+      <div style="font-size:12px;color:var(--fg);line-height:1.6;">Brand concentration (Brand KW + ASIN Defense) held near <strong>60%</strong> through the spring &mdash; 62.2% (Apr), 58.7% (May), 60.2% (Jun) &mdash; then <strong style="color:#fbbf24;">dropped sharply: 55.7% (Jul) &rarr; 42.0% (Aug) &rarr; 46.0% (Sep 1&ndash;13)</strong>. That is the single biggest structural change in the account this year, and it lines up with the efficiency loss. <strong style="color:#ef4444;">August is where it shows.</strong> Auto took <strong>$5,830</strong> at a <strong style="color:#ef4444;">52.2% ACoS</strong> (up from 37.4% in July) and Competitor took <strong>$4,628</strong> at <strong style="color:#ef4444;">47.9%</strong> (up from 31.9%) &mdash; together <strong>$10,458, 43% of August spend at roughly 50% ACoS</strong>. That pair is the clearest single explanation for August being the worst advertising month of the year. <strong style="color:var(--green);">Brand Keywords remains the efficient core</strong> and actually improved: 23.2% (Jul) &rarr; 21.8% (Aug) &rarr; 20.4% (Sep). September has pulled Auto back to 37.7% and Competitor to 31.3%. <strong>Generic/Ranking stays the worst line on the account</strong> at 87% / 75% / 77% ACoS, though only $594 in September. Category remains fully paused ($0 across all three months).</div>
     </div>
   </div>
 
@@ -2989,6 +2992,153 @@
       </div>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:#fbbf24;">60.2%</strong> · <span style="color:var(--muted);">ACoS 23.3% · FINAL</span></div>
     </div>
+    <div class="table-card" style="padding:18px;border:1px solid rgba(240,165,0,0.4);">
+      <div style="font-size:12px;font-weight:700;color:var(--fg);margin-bottom:12px;">July — Spend by Type <span style="color:var(--green);font-size:10px;">✓ FINAL (1–31)</span></div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🏷 Brand Keywords</span>
+            <span style="color:#fbbf24;font-weight:700;">44.4% · $9,734</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fbbf24;width:44.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🤖 Auto</span>
+            <span style="color:#a78bfa;font-weight:700;">18.4% · $4,041</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#a78bfa;width:18.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">⚔ Competitor</span>
+            <span style="color:#f87171;font-weight:700;">12.9% · $2,832</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#f87171;width:12.9%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🛡 ASIN Defense</span>
+            <span style="color:#fb923c;font-weight:700;">11.3% · $2,478</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fb923c;width:11.3%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">📡 SD Display</span>
+            <span style="color:#38bdf8;font-weight:700;">6.7% · $1,471</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#38bdf8;width:6.7%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🔍 Generic/Ranking</span>
+            <span style="color:#94a3b8;font-weight:700;">6.2% · $1,358 ⚠</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#94a3b8;width:6.2%;height:6px;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:#fbbf24;">55.7%</strong> · <span style="color:var(--muted);">ACoS 27.4%</span></div>
+    </div>
+
+    <div class="table-card" style="padding:18px;border:1px solid rgba(239,68,68,0.45);">
+      <div style="font-size:12px;font-weight:700;color:var(--fg);margin-bottom:12px;">August — Spend by Type <span style="color:var(--green);font-size:10px;">✓ FINAL (1–31)</span></div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🏷 Brand Keywords</span>
+            <span style="color:#fbbf24;font-weight:700;">33.7% · $8,139</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fbbf24;width:33.7%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🤖 Auto</span>
+            <span style="color:#a78bfa;font-weight:700;">24.1% · $5,830 ⚠</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#a78bfa;width:24.1%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">⚔ Competitor</span>
+            <span style="color:#f87171;font-weight:700;">19.2% · $4,628 ⚠</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#f87171;width:19.2%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🔍 Generic/Ranking</span>
+            <span style="color:#94a3b8;font-weight:700;">9.3% · $2,247 ⚠</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#94a3b8;width:9.3%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🛡 ASIN Defense</span>
+            <span style="color:#fb923c;font-weight:700;">8.2% · $1,991</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fb923c;width:8.2%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">📡 SD Display</span>
+            <span style="color:#38bdf8;font-weight:700;">5.4% · $1,309</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#38bdf8;width:5.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:#fbbf24;">42.0%</strong> · <span style="color:var(--muted);">ACoS 32.5%</span></div>
+    </div>
+
+    <div class="table-card" style="padding:18px;border:1px solid rgba(59,130,246,0.55);border-style:dashed;">
+      <div style="font-size:12px;font-weight:700;color:var(--fg);margin-bottom:12px;">September — Spend by Type <span style="color:var(--blue);font-size:10px;">● MTD (1–13)</span></div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🏷 Brand Keywords</span>
+            <span style="color:#fbbf24;font-weight:700;">37.5% · $2,991</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fbbf24;width:37.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🤖 Auto</span>
+            <span style="color:#a78bfa;font-weight:700;">22.5% · $1,796</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#a78bfa;width:22.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">⚔ Competitor</span>
+            <span style="color:#f87171;font-weight:700;">15.2% · $1,215</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#f87171;width:15.2%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">📡 SD Display</span>
+            <span style="color:#38bdf8;font-weight:700;">8.9% · $708</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#38bdf8;width:8.9%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🛡 ASIN Defense</span>
+            <span style="color:#fb923c;font-weight:700;">8.5% · $676</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#fb923c;width:8.5%;height:6px;border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+            <span style="color:var(--muted);">🔍 Generic/Ranking</span>
+            <span style="color:#94a3b8;font-weight:700;">7.4% · $594 ⚠</span>
+          </div>
+          <div style="background:var(--border);border-radius:3px;height:6px;"><div style="background:#94a3b8;width:7.4%;height:6px;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);">Combined brand: <strong style="color:#fbbf24;">46.0%</strong> · <span style="color:var(--muted);">ACoS 26.5%</span></div>
+    </div>
+
 
   </div>
 
@@ -2996,63 +3146,66 @@
   <div class="table-card" style="margin-bottom:24px;">
     <div class="chart-header">
       <div>
-        <div class="chart-title">ACoS by Campaign Type — Mar–Jun 2026 only · ⚠️ NOT REFRESHED SINCE JUNE</div>
-        <div class="chart-subtitle">Lower ACoS = better return. Green = efficient. Red = needs attention. <strong style="color:#fbbf24">⚠️ This table stops at June.</strong> A rebuild was attempted from the Ads Console campaign grid on 2026-09-08 and <strong style="color:var(--text)">deliberately abandoned</strong>: the grid&#8217;s per-campaign <em>sales</em> column is a different attribution basis from the product-type summaries used everywhere else on this dashboard. Cross-check &mdash; Sponsored Brands, Sep 1&ndash;6: the product-type summary reports <strong style="color:var(--text)">315 clicks / $3,806.80 sales</strong>, while a name-filtered read of the campaign grid returns <strong style="color:var(--text)">264 clicks / $317.72</strong>. Mixing the two would put a 12&times; error into this table. Refreshing it properly needs the <strong style="color:var(--text)">Sponsored Ads Campaign report export</strong> (Reporting &rarr; Sponsored ads reports), not the console UI. Treat the four columns below as historical context, not the present position.</div>
+        <div class="chart-title">ACoS by Campaign Type — Mar 2026 – Sep 13, 2026 · refreshed from the Campaign report export</div>
+        <div class="chart-subtitle">Lower ACoS = better return. Green = efficient. Amber = watch. Red = needs attention. <strong style="color:var(--green)">Jul, Aug and Sep columns were rebuilt on 2026-09-15</strong> from one-time <strong>Sponsored Ads Campaign report</strong> exports (Reporting &rarr; Sponsored ads reports) covering Jul 1 &ndash; Sep 13, 2026 for SP, SB and SD &mdash; the correct source. The console campaign <em>grid</em> was deliberately not used: its per-campaign <em>sales</em> column is a different attribution basis and mixing it would put a ~12&times; error into this table. <strong>Reconciliation:</strong> the export totals $21,914 (Jul), $24,145 (Aug) and $7,979 (Sep 1&ndash;13) against the FINAL/read figures of $22,075, $24,198 and $7,979 &mdash; within 0.7%, 0.2% and to the cent. <strong>Caveat:</strong> SP uses 7-day attribution while SB and SD use 14-day, so per-type ACoS mixes the two windows; spend shares are exact. Campaign type is derived from campaign naming (SELF &rarr; brand, COMP &rarr; competitor, Auto, ASIN+SELF &rarr; defense, all SD &rarr; SD Display); the Mar&ndash;Jun columns came from an earlier export and may classify marginally differently.</div>
       </div>
     </div>
-    <table>
+    <div class="table-scroll"><table>
       <thead>
         <tr>
-                  <th>Campaign Type</th>
+          <th>Campaign Type</th>
           <th>Mar ACoS</th><th>Mar Spend</th>
           <th>Apr ACoS</th><th>Apr Spend</th>
           <th>May ACoS</th><th>May Spend</th>
           <th>Jun ACoS</th><th>Jun Spend</th>
-          <th>Trend</th>
+          <th>Jul ACoS</th><th>Jul Spend</th>
+          <th>Aug ACoS</th><th>Aug Spend</th>
+          <th>Sep ACoS</th><th>Sep Spend</th>
+          <th>Trend Jul&rarr;Sep</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><strong style="color:var(--fg);">🏷 Brand Keywords</strong></td>
-          <td style="color:var(--green);font-weight:700;">20.9%</td><td style="color:var(--muted);">$10,415</td><td style="color:var(--green);font-weight:700;">19.7%</td><td style="color:var(--muted);">$10,998</td><td style="color:var(--green);font-weight:700;">19.7%</td><td style="color:var(--muted);">$10,622</td><td style="color:var(--green);font-weight:700;">21.4%</td><td style="color:var(--muted);">$4,998</td>
-          <td><span style="color:var(--green);">↓ Efficient core ✓</span></td>
+          <td style="color:var(--green);font-weight:700;">20.9%</td><td style="color:var(--muted);">$10,415</td><td style="color:var(--green);font-weight:700;">19.7%</td><td style="color:var(--muted);">$10,998</td><td style="color:var(--green);font-weight:700;">19.7%</td><td style="color:var(--muted);">$10,622</td><td style="color:var(--green);font-weight:700;">21.4%</td><td style="color:var(--muted);">$4,998</td><td style="color:var(--green);font-weight:700;">23.2%</td><td style="color:var(--muted);">$9,734</td><td style="color:var(--green);font-weight:700;">21.8%</td><td style="color:var(--muted);">$8,139</td><td style="color:var(--green);font-weight:700;">20.4%</td><td style="color:var(--muted);">$2,991</td>
+          <td><span style="color:var(--green);">↓ improving ✓</span></td>
         </tr>
         <tr>
           <td><strong style="color:var(--fg);">🤖 Auto Campaigns</strong></td>
-          <td style="color:#f87171;font-weight:700;">38.4%</td><td style="color:var(--muted);">$5,469</td><td style="color:#fbbf24;font-weight:700;">33.4%</td><td style="color:var(--muted);">$3,762</td><td style="color:#fbbf24;font-weight:700;">32.4%</td><td style="color:var(--muted);">$4,502</td><td style="color:#fbbf24;font-weight:700;">25.3%</td><td style="color:var(--muted);">$2,038</td>
-          <td><span style="color:var(--green);">↓ Improving ✓</span></td>
+          <td style="color:#fbbf24;font-weight:700;">38.4%</td><td style="color:var(--muted);">$5,469</td><td style="color:#fbbf24;font-weight:700;">33.4%</td><td style="color:var(--muted);">$3,762</td><td style="color:#fbbf24;font-weight:700;">32.4%</td><td style="color:var(--muted);">$4,502</td><td style="color:var(--green);font-weight:700;">25.3%</td><td style="color:var(--muted);">$2,038</td><td style="color:#fbbf24;font-weight:700;">37.4%</td><td style="color:var(--muted);">$4,041</td><td style="color:#f87171;font-weight:700;">52.2% ⚠</td><td style="color:var(--muted);">$5,830</td><td style="color:#fbbf24;font-weight:700;">37.7%</td><td style="color:var(--muted);">$1,796</td>
+          <td><span style="color:var(--muted);">↔ steady</span></td>
         </tr>
         <tr>
           <td><strong style="color:var(--fg);">🛡 ASIN Defense</strong></td>
-          <td style="color:#fbbf24;">27.2%</td><td style="color:var(--muted);">$1,252</td><td style="color:var(--green);font-weight:700;">13.1%</td><td style="color:var(--muted);">$3,593</td><td style="color:var(--green);">21.5%</td><td style="color:var(--muted);">$2,670</td><td style="color:#fbbf24;">27.9%</td><td style="color:var(--muted);">$1,107</td>
-          <td><span style="color:#fbbf24;">↑ off Apr low</span></td>
+          <td style="color:var(--green);font-weight:700;">27.2%</td><td style="color:var(--muted);">$1,252</td><td style="color:var(--green);font-weight:700;">13.1%</td><td style="color:var(--muted);">$3,593</td><td style="color:var(--green);font-weight:700;">21.5%</td><td style="color:var(--muted);">$2,670</td><td style="color:var(--green);font-weight:700;">27.9%</td><td style="color:var(--muted);">$1,107</td><td style="color:#fbbf24;font-weight:700;">30.2%</td><td style="color:var(--muted);">$2,478</td><td style="color:var(--green);font-weight:700;">25.4%</td><td style="color:var(--muted);">$1,991</td><td style="color:var(--green);font-weight:700;">16.9%</td><td style="color:var(--muted);">$676</td>
+          <td><span style="color:var(--green);">↓ improving ✓</span></td>
         </tr>
         <tr>
           <td><strong style="color:var(--fg);">⚔ Competitor</strong></td>
-          <td style="color:#fbbf24;font-weight:700;">30.0%</td><td style="color:var(--muted);">$3,235</td><td style="color:#fbbf24;">26.4%</td><td style="color:var(--muted);">$2,007</td><td style="color:var(--green);">20.3%</td><td style="color:var(--muted);">$2,164</td><td style="color:#fbbf24;">30.4%</td><td style="color:var(--muted);">$1,013</td>
-          <td><span style="color:#fbbf24;">↔ volatile</span></td>
+          <td style="color:#fbbf24;font-weight:700;">30.0%</td><td style="color:var(--muted);">$3,235</td><td style="color:var(--green);font-weight:700;">26.4%</td><td style="color:var(--muted);">$2,007</td><td style="color:var(--green);font-weight:700;">20.3%</td><td style="color:var(--muted);">$2,164</td><td style="color:#fbbf24;font-weight:700;">30.4%</td><td style="color:var(--muted);">$1,013</td><td style="color:#fbbf24;font-weight:700;">31.9%</td><td style="color:var(--muted);">$2,832</td><td style="color:#f87171;font-weight:700;">47.9% ⚠</td><td style="color:var(--muted);">$4,628</td><td style="color:#fbbf24;font-weight:700;">31.3%</td><td style="color:var(--muted);">$1,215</td>
+          <td><span style="color:var(--muted);">↔ steady</span></td>
         </tr>
         <tr>
           <td><strong style="color:var(--fg);">📡 SD Display</strong></td>
-          <td style="color:var(--muted);">—</td><td style="color:var(--muted);">—</td><td style="color:var(--green);font-weight:700;">20.4%</td><td style="color:var(--muted);">$2,258</td><td style="color:var(--green);">19.7%</td><td style="color:var(--muted);">$1,717</td><td style="color:#fbbf24;">29.0%</td><td style="color:var(--muted);">$691</td>
-          <td><span style="color:#fbbf24;">↑ attribution lag</span></td>
+          <td style="color:var(--muted);font-weight:700;">—</td><td style="color:var(--muted);">—</td><td style="color:var(--green);font-weight:700;">20.4%</td><td style="color:var(--muted);">$2,258</td><td style="color:var(--green);font-weight:700;">19.7%</td><td style="color:var(--muted);">$1,717</td><td style="color:#fbbf24;font-weight:700;">29.0%</td><td style="color:var(--muted);">$691</td><td style="color:var(--green);font-weight:700;">17.1%</td><td style="color:var(--muted);">$1,471</td><td style="color:var(--green);font-weight:700;">24.4%</td><td style="color:var(--muted);">$1,309</td><td style="color:#fbbf24;font-weight:700;">35.3%</td><td style="color:var(--muted);">$708</td>
+          <td><span style="color:#f87171;">↑ worse</span></td>
         </tr>
         <tr>
           <td><strong style="color:var(--fg);">🔍 Generic / Ranking</strong></td>
-          <td style="color:var(--green);font-weight:700;">16.6%</td><td style="color:var(--muted);">$6,136</td><td style="color:#f87171;font-weight:700;">49.2% ⚠</td><td style="color:var(--muted);">$715</td><td style="color:#f87171;font-weight:700;">53.3% ⚠</td><td style="color:var(--muted);">$978</td><td style="color:#fbbf24;">31.2%</td><td style="color:var(--muted);">$291</td>
-          <td><span style="color:#fbbf24;">↓ near-paused</span></td>
+          <td style="color:var(--green);font-weight:700;">16.6%</td><td style="color:var(--muted);">$6,136</td><td style="color:#f87171;font-weight:700;">49.2% ⚠</td><td style="color:var(--muted);">$715</td><td style="color:#f87171;font-weight:700;">53.3% ⚠</td><td style="color:var(--muted);">$978</td><td style="color:#fbbf24;font-weight:700;">31.2%</td><td style="color:var(--muted);">$291</td><td style="color:#f87171;font-weight:700;">87.3% ⚠</td><td style="color:var(--muted);">$1,358</td><td style="color:#f87171;font-weight:700;">75.2% ⚠</td><td style="color:var(--muted);">$2,247</td><td style="color:#f87171;font-weight:700;">77.1% ⚠</td><td style="color:var(--muted);">$594</td>
+          <td><span style="color:var(--green);">↓ improving ✓</span></td>
         </tr>
         <tr>
           <td><strong style="color:var(--fg);">📂 Category</strong></td>
-          <td style="color:#f87171;font-weight:700;">63.6% ⚠</td><td style="color:var(--muted);">$638</td><td style="color:#fbbf24;font-weight:700;">44.3%</td><td style="color:var(--muted);">$134</td><td style="color:var(--muted);">—</td><td style="color:var(--muted);">$≈0</td><td style="color:var(--muted);">—</td><td style="color:var(--muted);">$≈0</td>
-          <td><span style="color:var(--green);">⛔ paused ✓</span></td>
+          <td style="color:#f87171;font-weight:700;">63.6% ⚠</td><td style="color:var(--muted);">$638</td><td style="color:#fbbf24;font-weight:700;">44.3%</td><td style="color:var(--muted);">$134</td><td style="color:var(--muted);font-weight:700;">—</td><td style="color:var(--muted);">$≈0</td><td style="color:var(--muted);font-weight:700;">—</td><td style="color:var(--muted);">$≈0</td><td style="color:var(--muted);">—</td><td style="color:var(--muted);">$≈0</td><td style="color:var(--muted);">—</td><td style="color:var(--muted);">$≈0</td><td style="color:var(--muted);">—</td><td style="color:var(--muted);">$≈0</td>
+          <td><span style="color:var(--muted);">⛔ paused ✓</span></td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <!-- ── MAG SCORECARD ── -->
-  <div class="section-label" style="margin-top:32px;">MAG Agency Scorecard — Efficiency &amp; budget current to Sep 13 · monthly cards complete to September · campaign-type detail stops at June</div>
+  <div class="section-label" style="margin-top:32px;">MAG Agency Scorecard — Efficiency &amp; budget current to Sep 13 · monthly cards and campaign-type detail complete to September</div>
   <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:24px;">
 
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
@@ -3106,7 +3259,7 @@
     <div style="margin-top:18px;background:rgba(96,165,250,0.07);border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:14px 18px;">
       <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:10px;">📋 Data-Driven Questions for Your Next MAG Meeting</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">1. <strong>ACoS ran 20.4% (Apr) &rarr; 23.3% (Jun) &rarr; 27.7% (Jul) &rarr; 32.8% (Aug) &mdash; five months of deterioration, with August the worst month of the year.</strong> What specifically changed, and what was done in September to pull it back to 26.6%?</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">2. <strong>August spend rose 9.6% to $24,198 on flat revenue.</strong> Was that an intentional push, and against what target? It cost roughly $2,100 of True Net.</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">3. <strong>September is pacing $614/day vs August&#8217;s $781 &mdash; an $18.4K month against $24.2K.</strong> Is that deliberate pacing or under-delivery? It materially changes the True Net projection either way.</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">4. <strong>Sponsored Brands has overtaken Sponsored Display on both ROAS and ACoS for seven consecutive reads</strong> (Sep 1&ndash;13: SB 5.03x / 19.9% vs SD 2.83x / 35.3%), reversing the pattern that held all year. What is driving it, and should budget move to SB?</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">5. <strong>SP carries 75% of spend at the worst efficiency in the account</strong> (28.3% ACoS, 3.54x, $2.23 CPC in September). What is the plan to either improve SP or shift share out of it?</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">6. <strong>Campaign-type reporting on this dashboard has not been refreshed since June.</strong> Can MAG supply the Jul/Aug/Sep breakdown by campaign type (Brand KW, Auto, ASIN Defense, Competitor, SD, Generic/Category) so brand-concentration and type-level ACoS can be tracked again?</div>
+        <div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">1. <strong>ACoS ran 20.4% (Apr) &rarr; 23.3% (Jun) &rarr; 27.7% (Jul) &rarr; 32.8% (Aug) &mdash; five months of deterioration, with August the worst month of the year.</strong> What specifically changed, and what was done in September to pull it back to 26.6%?</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">2. <strong>August spend rose 9.6% to $24,198 on flat revenue.</strong> Was that an intentional push, and against what target? It cost roughly $2,100 of True Net.</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">3. <strong>September is pacing $614/day vs August&#8217;s $781 &mdash; an $18.4K month against $24.2K.</strong> Is that deliberate pacing or under-delivery? It materially changes the True Net projection either way.</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">4. <strong>Sponsored Brands has overtaken Sponsored Display on both ROAS and ACoS for seven consecutive reads</strong> (Sep 1&ndash;13: SB 5.03x / 19.9% vs SD 2.83x / 35.3%), reversing the pattern that held all year. What is driving it, and should budget move to SB?</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">5. <strong>SP carries 75% of spend at the worst efficiency in the account</strong> (28.3% ACoS, 3.54x, $2.23 CPC in September). What is the plan to either improve SP or shift share out of it?</div><div style="font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);">6. <strong>August&#8217;s efficiency loss traces to two campaign types.</strong> Auto ran <strong>$5,830 at 52.2% ACoS</strong> and Competitor <strong>$4,628 at 47.9%</strong> &mdash; 43% of the month&#8217;s spend at roughly 50% ACoS, while Brand Keywords held at 21.8%. What drove the Auto and Competitor push, and what is the ceiling on those two going forward?</div>
       </div>
     </div>
 
